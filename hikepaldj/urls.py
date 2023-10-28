@@ -19,5 +19,4 @@ from search import views
 
 urlpatterns = [
     path('', include('search.urls')),
-    path('search/', views.search_view, name='search'),  # move to search.urls?
 ]
