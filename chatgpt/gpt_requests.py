@@ -23,12 +23,10 @@ def ask_for_trails(parameters):
     json = response.json()
     content = json['choices'][0]['message']['content']  # string with results
     print(content)
-
     if "\n\n" in content:
         content = content.split("\n\n")
     else:
         content = content.split("\n")
-
     dic = {}
     for res in content:
         name, coords, distance, description = res.split(' % ')
