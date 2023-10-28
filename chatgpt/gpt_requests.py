@@ -15,8 +15,17 @@ def ask_for_trails(parameters):
         "temperature": 0.7
     }, headers={"Content-Type": "application/json", "Authorization": f"Bearer {os.getenv('chatgpt_api_key')}"})
     json = response.json()
-    print(json['choices'][0]['message']['content'])
-    return json['choices'][0]['message']['content']
+
+    content = json['choices'][0]['message']['content']  # string with results
+    print(content)
+    content = content.split('\n')
+
+    dic = {}
+    for res in content:
+        name, coords = res.split('%')
+        dic[name.rstrip(' ')] = coords.strip(' ')
+    print(dic)
+    return dic
 
 
 ask_for_trails({"city": "Sydney", "radius": 100})
