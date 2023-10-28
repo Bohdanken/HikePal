@@ -128,7 +128,7 @@ def forecast_between_dates_coordinates_days(latitude, longitude, start_date, end
         print(f"Failed to retrieve data: {response.status_code}")
         return None
 
-
+"""
 print("The names and the order of keys in the returned list's dictionaries")
 print()
 location = "Glasgow, UK"
@@ -137,5 +137,6 @@ end_date = "2023-11-03"
 output = forecast_between_dates_location(location, start_date, end_date)
 print(json.dumps(output, indent=4))
 print(good_weather(output))
+"""
 
 
