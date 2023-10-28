@@ -24,7 +24,7 @@ def get_weather_url(location=None, start_date=None, end_date=None, latitude=None
         f"?key={API_KEY}"
         f"&unitGroup=metric"
         f"&include=hours"
-        f"&elements=cloudcover,description,feelslike,precip,humidity,conditions,datetime"
+        f"&elements=cloudcover,description,feelslike,precip,humidity,conditions,datetime,snow"
     )
     return f"{base_url}{location_date}{params}"
 
@@ -47,6 +47,7 @@ def filter_forecast_data(forecast_data):
                     "feelslike": hour_data['feelslike'],
                     "humidity": hour_data['humidity'],
                     "precip": hour_data['precip'],
+                    "snow": hour_data['snow'],
                     "cloudcover": hour_data['cloudcover'],
                     "conditions": hour_data['conditions']
                 })
@@ -82,6 +83,26 @@ def forecast_between_dates_coordinates(longitude, latitude, start_date, end_date
         return None
 
 
+def good_weather(days_data):
+    total_hours = 1
+    good_hours = 0
+    for day in days_data:
+        for hour in day['hours']:
+            total_hours += 1
+            feelslike = hour.get('feelslike', None)
+            humidity = hour.get('humidity', None)
+            precip = hour.get('precip', None)
+            snow = hour.get('snow', None)
+            conditions = hour.get('conditions', None)
+            good_feelslike = feelslike is not None and -10 <= feelslike <= 25
+            good_humidity = humidity is not None and humidity <= 90
+            good_precip = precip is None or precip <= 2
+            good_snow = snow is None or snow < 1
+            good_conditions = conditions is not None and conditions.lower() not in ["Rain","Snow"]
+            if good_feelslike and good_humidity and good_precip and good_snow and good_conditions:
+                good_hours += 1
+    return good_hours / total_hours >= 0.75
+
 
 
 """
@@ -110,10 +131,11 @@ def forecast_between_dates_coordinates_days(latitude, longitude, start_date, end
 
 print("The names and the order of keys in the returned list's dictionaries")
 print()
-location = "Washington,DC"
+location = "Glasgow, UK"
 start_date = "2023-11-01"
 end_date = "2023-11-03"
 output = forecast_between_dates_location(location, start_date, end_date)
 print(json.dumps(output, indent=4))
+print(good_weather(output))
 
 
