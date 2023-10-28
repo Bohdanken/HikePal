@@ -1,10 +1,7 @@
 import requests
 from datetime import datetime
-import pytz
-import pandas
 from dotenv import load_dotenv
 import os
-import json
 
 load_dotenv()
 API_KEY = os.getenv("weather_api_key")

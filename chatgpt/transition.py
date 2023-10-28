@@ -12,7 +12,7 @@ def extract_coordinates(trail_data):
 
 
 def get_final_data(start_date,end_date, difficulty,city,radius):
-    trail_data = ask_for_trails({"difficulty": {difficulty}, "city": {city}, "radius": {radius}})
+    trail_data = ask_for_trails({"difficulty": difficulty, "city": city, "radius": radius})
     coordinates, names = extract_coordinates(trail_data)
     forecasts = []
     for i in range(len(coordinates)):
@@ -25,3 +25,7 @@ def get_final_data(start_date,end_date, difficulty,city,radius):
         ))
         trail_data[names[i]]["weather"]=weather.good_weather(forecasts[-1])
     return trail_data
+
+#start_date = "2023-11-01"
+#end_date = "2023-11-03"
+#print(get_final_data(start_date,end_date,"medium","Sydney",100))

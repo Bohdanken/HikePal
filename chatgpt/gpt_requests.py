@@ -12,7 +12,7 @@ def ask_for_trails(parameters):
     request_str = f"Tell me 10 most popular trails (but not parks) of {parameters['difficulty']} level " \
                   f"within {parameters['radius']} kilometers of {parameters['city']}. " \
                   f"Please tell names, coordinates, distance from the city, and brief description, " \
-                  f"Please give your answer in the following format: NAME % (LATITUDE, LONGITUDE) % DISTANCE % DESCRIPTION."
+                  f"Please give your answer in the following format: NAME % (LATITUDE, LONGITUDE) % DISTANCE % DESCRIPTION. "
 
     print(request_str)
     response = requests.post("https://api.openai.com/v1/chat/completions", json={
@@ -27,6 +27,9 @@ def ask_for_trails(parameters):
         content = content.split("\n\n")
     else:
         content = content.split("\n")
+    if re.match(content[-1][:2],r"^\d\..*"):
+        content=content[:-1]
+
     dic = {}
     for res in content:
         name, coords, distance, description = res.split(' % ')
