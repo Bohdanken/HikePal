@@ -39,7 +39,8 @@ def search_helper(request):
 
         return render(request, 'search/results-list-layout-full-page-map.html', context)
 
-    return redirect('/')
+    #return redirect('/')
+    return render(request, 'search/results-list-layout-full-page-map.html')
 
 
 def _get_search_results_helper(location, dates, radius, difficulty, equipPresent):
@@ -48,8 +49,8 @@ def _get_search_results_helper(location, dates, radius, difficulty, equipPresent
     with entered by user parameters.
     """
     day_dates, month_dates = _get_dates_from_dates_string(dates)
-    first_date = f"{day_dates[0]}.{month_dates[0]}"
-    second_date = f"{day_dates[0]}.{month_dates[0]}"
+    first_date = f"2023-{month_dates[0]}-{day_dates[0]}"
+    second_date = f"2023-{month_dates[1]}-{day_dates[1]}"
 
     resulting_dict = {}
     resulting_dict = transition.get_final_data(first_date, second_date, difficulty, location, radius)
