@@ -1,0 +1,510 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>HikePal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/colors/blue.css' %}">
+
+</head>
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header Container
+================================================== -->
+<header id="header-container" class="fullwidth">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<a href="/"><img src="{% static 'images/logo.svg' %}" style="height: 180px;" alt="HikePal"></a>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav id="navigation">
+					<ul id="responsive">
+
+						<li><a href="#" class="current">Search</a>
+							<ul class="dropdown-nav">
+							</ul>
+						</li>
+
+						<li><a href="#">Find Work</a>
+							<ul class="dropdown-nav">
+								<li><a href="#">Browse Results</a>
+									<ul class="dropdown-nav">
+										<li><a href="/">Full Page List + Map</a></li>
+										<li><a href="/">Full Page Grid + Map</a></li>
+										<li><a href="/">Full Page Grid</a></li>
+										<li><a href="/">List Layout 1</a></li>
+										<li><a href="/">List Layout 2</a></li>
+										<li><a href="/">Grid Layout</a></li>
+									</ul>
+								</li>
+								<li><a href="#">Browse Results</a>
+									<ul class="dropdown-nav">
+										<li><a href="/">List Layout 1</a></li>
+										<li><a href="/">List Layout 2</a></li>
+										<li><a href="/">Grid Layout</a></li>
+										<li><a href="/">Full Page Grid</a></li>
+									</ul>
+								</li>
+								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Single Page</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Browse Results</a>
+							<ul class="dropdown-nav">
+								<li><a href="#">Search results</a>
+									<ul class="dropdown-nav">
+										<li><a href="/">Full Page Grid</a></li>
+										<li><a href="/">Grid Layout</a></li>
+										<li><a href="/">List Layout 1</a></li>
+										<li><a href="/">List Layout 2</a></li>
+									</ul>
+								</li>
+								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Single Page</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Pages</a>
+							<ul class="dropdown-nav">
+								<li><a href="pages-blog.html">Blog</a></li>
+								<li><a href="pages-pricing-plans.html">Pricing Plans</a></li>
+								<li><a href="pages-checkout-page.html">Checkout Page</a></li>
+								<li><a href="pages-invoice-template.html">Invoice Template</a></li>
+								<li><a href="pages-user-interface-elements.html">User Interface Elements</a></li>
+								<li><a href="pages-icons-cheatsheet.html">Icons Cheatsheet</a></li>
+								<li><a href="pages-login.html">Login & Register</a></li>
+								<li><a href="pages-404.html">404 Page</a></li>
+								<li><a href="pages-contact.html">Contact</a></li>
+							</ul>
+						</li>
+
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+				
+			</div>
+			<!-- Left Side Content / End -->
+
+
+			<!-- Right Side Content / End -->
+			<div class="right-side">
+
+				<!--  User Notifications -->
+				<div class="header-widget hide-on-mobile" style="border-left: 0px;">
+					
+					<!-- Messages -->
+					<div class="header-notifications" style="margin-top: 11.5px;">
+						<div class="intro-search-button">
+							<a href="#" class="button" style="height: 42px; line-height: 42px; padding: 0 20px; background-color: #999;">Support Us</a>
+						</div>
+					</div>
+
+				</div>
+				<!--  User Notifications / End -->
+
+				<!-- Mobile Navigation Button -->
+				<span class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</span>
+
+			</div>
+			<!-- Right Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+<div class="dashboard-content-container" data-simplebar>
+	<div class="dashboard-content-inner">
+		
+		<!-- Dashboard Headline -->
+		<div class="dashboard-headline">
+			<h3>Messages</h3>
+
+			<!-- Breadcrumbs -->
+			<nav id="breadcrumbs" class="dark">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Dashboard</a></li>
+					<li>Messages</li>
+				</ul>
+			</nav>
+		</div>
+
+			<div class="messages-container margin-top-0">
+
+				<div class="messages-container-inner">
+
+					<!-- Message Content -->
+					<div class="message-content">
+
+						<div class="messages-headline">
+							<h4>Sindy Forest</h4>
+							<a href="#" class="message-action"><i class="icon-feather-trash-2"></i> Delete Conversation</a>
+						</div>
+						
+						<!-- Message Content Inner -->
+						<div class="message-content-inner">
+								
+								<!-- Time Sign -->
+								<div class="message-time-sign">
+									<span>28 June, 2018</span>
+								</div>
+
+								<div class="message-bubble me">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
+										<div class="message-text"><p>Thanks for choosing my offer. I will start working on your project tomorrow.</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="message-bubble">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
+										<div class="message-text"><p>Great. If you need any further clarification let me know. 👍</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="message-bubble me">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
+										<div class="message-text"><p>Ok, I will. 😉</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<!-- Time Sign -->
+								<div class="message-time-sign">
+									<span>Yesterday</span>
+								</div>
+
+								<div class="message-bubble me">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
+										<div class="message-text"><p>Hi Sindy, I just wanted to let you know that project is finished and I'm waiting for your approval.</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="message-bubble">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
+										<div class="message-text"><p>Hi Tom! Hate to break it to you, but I'm actually on vacation 🌴 until Sunday so I can't check it now. 😎</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="message-bubble me">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
+										<div class="message-text"><p>Ok, no problem. But don't forget about last payment. 🙂</p></div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+
+								<div class="message-bubble">
+									<div class="message-bubble-inner">
+										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
+										<div class="message-text">
+											<!-- Typing Indicator -->
+											<div class="typing-indicator">
+												<span></span>
+												<span></span>
+												<span></span>
+											</div>
+										</div>
+									</div>
+									<div class="clearfix"></div>
+								</div>
+						</div>
+						<!-- Message Content Inner / End -->
+						
+						<!-- Reply Area -->
+						<div class="message-reply">
+							<textarea cols="1" rows="1" placeholder="Your Message" data-autoresize></textarea>
+							<button class="button ripple-effect">Send</button>
+						</div>
+
+					</div>
+					<!-- Message Content -->
+
+				</div>
+		</div>
+		<!-- Messages Container / End -->
+
+
+
+		
+		<!-- Footer -->
+		<div class="dashboard-footer-spacer"></div>
+		<div class="small-footer margin-top-15">
+			<div class="small-footer-copyrights">
+				© 2023 <strong>HikePal</strong>. All Rights Reserved.
+			</div>
+			<ul class="footer-social-links">
+				<li>
+					<a href="#" title="Facebook" data-tippy-placement="top">
+						<i class="icon-brand-facebook-f"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="Twitter" data-tippy-placement="top">
+						<i class="icon-brand-twitter"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="Google Plus" data-tippy-placement="top">
+						<i class="icon-brand-google-plus-g"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" title="LinkedIn" data-tippy-placement="top">
+						<i class="icon-brand-linkedin-in"></i>
+					</a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<!-- Footer / End -->
+
+	</div>
+</div>
+
+<!-- Footer
+================================================== -->
+<div id="footer">
+	
+	<!-- Footer Top Section -->
+	<div class="footer-top-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+
+					<!-- Footer Rows Container -->
+					<div class="footer-rows-container">
+						
+						<!-- Left Side -->
+						<div class="footer-rows-left">
+							<div class="footer-row">
+								<div class="footer-row-inner footer-logo">
+									<img src="images/logo2.png" alt="">
+								</div>
+							</div>
+						</div>
+						
+						<!-- Right Side -->
+						<div class="footer-rows-right">
+
+							<!-- Social Icons -->
+							<div class="footer-row">
+								<div class="footer-row-inner">
+									<ul class="footer-social-links">
+										<li>
+											<a href="#" title="Facebook" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-facebook-f"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="Twitter" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-twitter"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="Google Plus" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-google-plus-g"></i>
+											</a>
+										</li>
+										<li>
+											<a href="#" title="LinkedIn" data-tippy-placement="bottom" data-tippy-theme="light">
+												<i class="icon-brand-linkedin-in"></i>
+											</a>
+										</li>
+									</ul>
+									<div class="clearfix"></div>
+								</div>
+							</div>
+							
+							<!-- Language Switcher -->
+							<div class="footer-row">
+								<div class="footer-row-inner">
+									<select class="selectpicker language-switcher" data-selected-text-format="count" data-size="5">
+										<option selected>English</option>
+										<option>Français</option>
+										<option>Español</option>
+										<option>Deutsch</option>
+									</select>
+								</div>
+							</div>
+						</div>
+
+					</div>
+					<!-- Footer Rows Container / End -->
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Top Section / End -->
+
+	<!-- Footer Middle Section -->
+	<div class="footer-middle-section">
+		<div class="container">
+			<div class="row">
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>For Candidates</h3>
+						<ul>
+							<li><a href="#"><span>Browse Jobs</span></a></li>
+							<li><a href="#"><span>Add Resume</span></a></li>
+							<li><a href="#"><span>Job Alerts</span></a></li>
+							<li><a href="#"><span>My Bookmarks</span></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>For Employers</h3>
+						<ul>
+							<li><a href="#"><span>Browse Candidates</span></a></li>
+							<li><a href="#"><span>Post a Job</span></a></li>
+							<li><a href="#"><span>Post a Task</span></a></li>
+							<li><a href="#"><span>Plans & Pricing</span></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>Helpful Links</h3>
+						<ul>
+							<li><a href="#"><span>Contact</span></a></li>
+							<li><a href="#"><span>Privacy Policy</span></a></li>
+							<li><a href="#"><span>Terms of Use</span></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Links -->
+				<div class="col-xl-2 col-lg-2 col-md-3">
+					<div class="footer-links">
+						<h3>Account</h3>
+						<ul>
+							<li><a href="#"><span>Log In</span></a></li>
+							<li><a href="#"><span>My Account</span></a></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Newsletter -->
+				<div class="col-xl-4 col-lg-4 col-md-12">
+					<h3><i class="icon-feather-mail"></i> Sign Up For a Newsletter</h3>
+					<p>Weekly breaking news, analysis and cutting edge advices on job searching.</p>
+					<form action="#" method="get" class="newsletter">
+						<input type="text" name="fname" placeholder="Enter your email address">
+						<button type="submit"><i class="icon-feather-arrow-right"></i></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Middle Section / End -->
+	
+	<!-- Footer Copyrights -->
+	<div class="footer-bottom-section">
+		<div class="container">
+			<div class="row">
+				<div class="col-xl-12">
+					© 2023 <strong>HikePal</strong>. All Rights Reserved.
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Footer Copyrights / End -->
+
+</div>
+<!-- Footer / End -->
+
+</div>
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.0.min.js' %}"></script>
+<script src="{% static 'js/mmenu.min.js' %}"></script>
+<script src="{% static 'js/tippy.all.min.js' %}"></script>
+<script src="{% static 'js/simplebar.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/snackbar.js' %}"></script>
+<script src="{% static 'js/clipboard.min.js' %}"></script>
+<script src="{% static 'js/counterup.min.js' %}"></script>
+<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+<script src="{% static 'js/infobox.min.js' %}"></script>
+<script src="{% static 'js/markerclusterer.js' %}"></script>
+<script src="{% static 'js/maps.js' %}"></script>
+
+</body>
+</html>
