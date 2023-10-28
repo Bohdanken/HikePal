@@ -323,7 +323,7 @@
 <!-- Intro Banner
 ================================================== -->
 <!-- add class "disable-gradient" to enable consistent background overlay -->
-<div class="intro-banner" data-background-image="images/home-background.jpg">
+<div class="intro-banner" data-background-image="{% static 'images/home-background.jpg' %}">
 	<div class="container">
 		
 		<!-- Intro Headline -->
@@ -361,6 +361,7 @@
 
 					<!-- Button -->
 					<div class="intro-search-button">
+            <!-- TODO dropdown list with city options?? -->
 						<button class="button ripple-effect" onclick="window.location.href='jobs-list-layout-full-page-map.html'">Search</button>
 					</div>
 				</div>
