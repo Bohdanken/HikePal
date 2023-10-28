@@ -82,6 +82,26 @@ def forecast_between_dates_coordinates(longitude, latitude, start_date, end_date
         return None
 
 
+def good_weather(days_data):
+    total_hours = 0
+    good_hours = 0
+    for day in days_data:
+        for hour in day['hours']:
+            total_hours += 1
+            feelslike = hour.get('feelslike', None)
+            humidity = hour.get('humidity', None)
+            precip = hour.get('precip', None)
+            cloudcover = hour.get('cloudcover', None)
+            conditions = hour.get('conditions', None)
+            good_feelslike = feelslike is not None and -10 <= feelslike <= 25  # feels like temperature is between -10 and 25
+            good_humidity = humidity is not None and humidity <= 80  # humidity is 80% or less
+            good_precip = precip is None or precip <= 0.2  # no precipitation or very light precipitation
+            good_cloudcover = cloudcover is not None and cloudcover <= 50  # cloud cover is 50% or less
+            good_conditions = conditions is not None and conditions.lower() in ['clear', 'partially cloudy']
+            if good_feelslike and good_humidity and good_precip and good_cloudcover and good_conditions:
+                good_hours += 1
+    return good_hours / total_hours >= 0.75
+
 
 
 """
