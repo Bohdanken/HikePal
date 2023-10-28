@@ -26,6 +26,6 @@ def get_final_data(start_date,end_date, difficulty,city,radius):
         trail_data[names[i]]["weather"]=weather.good_weather(forecasts[-1])
     return trail_data
 
-#start_date = "2023-11-01"
-#end_date = "2023-11-03"
-#print(get_final_data(start_date,end_date,"medium","Sydney",100))
+start_date = "2023-10-29"
+end_date = "2023-10-30"
+print(get_final_data(start_date,end_date,"Moderate","Glasgow",50))
