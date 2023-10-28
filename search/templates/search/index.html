@@ -119,9 +119,9 @@
 				<div class="header-widget hide-on-mobile" style="border-left: 0px;">
 					
 					<!-- Messages -->
-					<div class="header-notifications" style="margin-top: 5px;">
+					<div class="header-notifications" style="margin-top: 11.5px;">
 						<div class="intro-search-button">
-							<a href="#" class="button">Support Us</a>
+							<a href="#" class="button" style="height: 42px; line-height: 42px; padding: 0 20px; background-color: #999;">Support Us</a>
 						</div>
 					</div>
 
@@ -160,9 +160,10 @@
 		<div class="row">
 			<div class="col-md-12">
 				<div class="banner-headline">
+					<h3 style="margin-bottom: 40px; margin-top: 20px;">
+						<strong style="color: #ffffff; font-size: 38px;">Discover Your Next Adventure!</strong>
+					</h3>
 					<h3>
-						<strong style="color: #ffffff;">Discover Your Next Adventure!</strong>
-						<br>
 						<span style="color: #ffffff;"><strong class="color">HikePal</strong> empowers you to unearth hidden treasures and endless possibilities with the help of AI.</span>
 					</h3>
 				</div>
@@ -178,7 +179,7 @@
 					<div class="intro-search-field with-autocomplete">
 						<label for="autocomplete-input" class="field-title ripple-effect">Where are you?</label>
 						<div class="input-with-icon">
-							<input type="text" placeholder="City, Town...">
+							<input type="text" placeholder="City, Town..." id="homeLocationInput">
 							<i class="icon-material-outline-location-on"></i>
 						</div>
 					</div>
@@ -186,12 +187,12 @@
 					<!-- Search Field -->
 					<div class="intro-search-field">
 						<label for ="intro-keywords" class="field-title ripple-effect">What dates?</label>
-						<input id="intro-keywords" type="text" placeholder="Oct 12 - Oct 15...">
+						<input id="homeDateInput" type="text" placeholder="Oct 12 - Oct 15...">
 					</div>
 
 					<!-- Button -->
 					<div class="intro-search-button">
-						<a class="button popup-with-zoom-anim ripple-effect" href="#small-dialog-2">Search</a>
+						<a class="button popup-with-zoom-anim ripple-effect" id="homeSearchBtn" href="#small-dialog-2">Search</a>
 					</div>
 				</div>
 			</div>
@@ -201,6 +202,10 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ul class="intro-stats margin-top-45 hide-under-992px">
+					<li>
+						<strong style="color: #ffffff;">2023</strong>
+						<span style="color: #ffffff;">Founded In</span>
+					</li>
 					<li>
 						<strong style="color: #ffffff;">&#8734;</strong>
 						<span style="color: #ffffff;">Hiking Spots</span>
@@ -237,7 +242,7 @@
 				<div class="categories-container">
 
 					<!-- Category Box -->
-					<a href="jobs-grid-layout-full-page.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-car"></i>
 						</div>
@@ -248,7 +253,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-full-page-map.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-smile-o"></i>
 						</div>
@@ -259,7 +264,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-full-page-map.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-compass"></i>
 						</div>
@@ -270,7 +275,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-1.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-thumbs-up"></i>
 						</div>
@@ -281,7 +286,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-2.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-bicycle"></i>
 						</div>
@@ -292,7 +297,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-1.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-fire"></i>
 						</div>
@@ -303,7 +308,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-list-layout-2.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-car"></i>
 						</div>
@@ -314,7 +319,7 @@
 					</a>
 
 					<!-- Category Box -->
-					<a href="jobs-grid-layout-full-page.html" class="category-box">
+					<a href="#" class="category-box">
 						<div class="category-box-icon">
 							<i class="icon-line-awesome-bus"></i>
 						</div>
@@ -523,7 +528,7 @@
 
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-1.html" class="photo-box" data-background-image="images/featured-city-01.jpg">
+				<a href="jobs-list-layout-1.html" class="photo-box" data-background-image="{% static 'images/glasgow-photo.jpg' %}">
 					<div class="photo-box-content">
 						<h3>Glasgow</h3>
 						<span>200+ adventurers</span>
@@ -533,7 +538,7 @@
 			
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-full-page-map.html" class="photo-box" data-background-image="images/featured-city-02.jpg">
+				<a href="jobs-list-layout-full-page-map.html" class="photo-box" data-background-image="{% static 'images/edinburgh-photo.jpg' %}">
 					<div class="photo-box-content">
 						<h3>Edinburgh</h3>
 						<span>100+ adventurers</span>
@@ -543,7 +548,7 @@
 			
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-grid-layout-full-page.html" class="photo-box" data-background-image="images/featured-city-03.jpg">
+				<a href="jobs-grid-layout-full-page.html" class="photo-box" data-background-image="{% static 'images/london-photo.jpg' %}">
 					<div class="photo-box-content">
 						<h3>London</h3>
 						<span>1000+ adventurers</span>
@@ -553,7 +558,7 @@
 
 			<div class="col-xl-3 col-md-6">
 				<!-- Photo Box -->
-				<a href="jobs-list-layout-2.html" class="photo-box" data-background-image="images/featured-city-04.jpg">
+				<a href="jobs-list-layout-2.html" class="photo-box" data-background-image="{% static 'images/manchester-photo.jpg' %}">
 					<div class="photo-box-content">
 						<h3>Manchester</h3>
 						<span>500+ adventurers</span>
@@ -901,9 +906,6 @@
 								<div class="footer-row-inner">
 									<select class="selectpicker language-switcher" data-selected-text-format="count" data-size="5">
 										<option selected>English</option>
-										<option>Français</option>
-										<option>Español</option>
-										<option>Deutsch</option>
 									</select>
 								</div>
 							</div>
@@ -1027,21 +1029,21 @@
 				<!-- Form -->
 				<div>
 
-					<div class="feedback-yes-no">
+					<div class="feedback-yes-no" id="popUpLocationDiv">
 						<strong style="margin-bottom: 10px;">Where are you located?</strong>
 						<div class="input-with-icon">
 							<div>
-								<input class="with-border" type="text" placeholder="City, Town..." style="margin-bottom: 0px;">
+								<input class="with-border" type="text" placeholder="City, Town..." style="margin-bottom: 0px;" id="popUpLocationInput">
 							</div>
 							<i class="icon-material-outline-location-on"></i>
 						</div>
 					</div>
 
-					<div class="feedback-yes-no">
+					<div class="feedback-yes-no" id="popUpDateDiv">
 						<strong style="margin-bottom: 10px;">What dates trip should take place on?</strong>
 						<div class="input-with-icon">
 							<div>
-								<input class="with-border" type="text" placeholder="Mar 28 - Mar 29" style="margin-bottom: 0px;">
+								<input class="with-border" type="text" placeholder="Mar 28 - Mar 29" style="margin-bottom: 0px;" id="popUpDateInput">
 							</div>
 							<i class="icon-material-outline-location-on"></i>
 						</div>
@@ -1049,42 +1051,42 @@
 
 					<div class="feedback-yes-no">
 						<strong style="margin-bottom: 10px;">What's your radius of search?</strong>
-						<select class="selectpicker with-border" data-size="7" title="Please Select">
-							<option>~ 5km</option>
-							<option>~ 10km</option>
-							<option>~ 50km</option>
-							<option>~ 100km</option>
-							<option>~ 100km+</option>
+						<select class="selectpicker with-border" data-size="7" title="Please Select" id="popUpRadiusSelect">
+							<option value="10">~ 10km</option>
+							<option value="25">~ 25km</option>
+							<option value="50">~ 50km</option>
+							<option value="150">~ 150km</option>
+							<option value="200">~ 200km+</option>
 						</select>
 					</div>
 
 					<div class="feedback-yes-no">
 						<strong style="margin-bottom: 10px;">Expected level of difficulty?</strong>
-						<select class="selectpicker with-border" data-size="7" title="Please Select">
-							<option>Easy</option>
-							<option>Moderate</option>
-							<option>Hard</option>
-							<option>Extremely Hard</option>
+						<select class="selectpicker with-border" data-size="7" title="Please Select" id="popUpDifficultSelect">
+							<option value="easy">Easy</option>
+							<option value="moderate">Moderate</option>
+							<option value="hard">Hard</option>
+							<option value="extremely hard">Extremely Hard</option>
 						</select>
 					</div>
 
 					<div class="feedback-yes-no">
 						<strong style="margin-bottom: 10px;">Carrying equipment with you? (Tent, sleeping bags...)</strong>
 						<div class="radio">
-							<input id="radio-3" name="radio2" type="radio" required>
-							<label for="radio-3"><span class="radio-label"></span> Yes</label>
+							<input name="popUpEquipRadio" id="popUpEquipRadio1" type="radio" value="1">
+							<label for="popUpEquipRadio1"><span class="radio-label"></span> Yes</label>
 						</div>
 
 						<div class="radio">
-							<input id="radio-4" name="radio2" type="radio" required>
-							<label for="radio-4"><span class="radio-label"></span> No</label>
+							<input name="popUpEquipRadio" id="popUpEquipRadio0" type="radio" value="0">
+							<label for="popUpEquipRadio0"><span class="radio-label"></span> No</label>
 						</div>
 					</div>
 
 				</div>
 				
 				<!-- Button -->
-				<button class="button full-width button-sliding-icon ripple-effect" style="margin-top: 35px;">Search Destinations <i class="icon-material-outline-search"></i></button>
+				<button class="button full-width button-sliding-icon ripple-effect" style="margin-top: 35px;" id="popUpSearchBtn">Search Destinations <i class="icon-material-outline-search"></i></button>
 
 			</div>
 
@@ -1108,6 +1110,94 @@
 <script src="{% static 'js/magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/slick.min.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Search inputs control -->
+<script>
+	$(document).ready(function() {
+		function getCookie(name) {
+			var cookieValue = null;
+			if (document.cookie && document.cookie !== '') {
+				var cookies = document.cookie.split(';');
+				for (var i = 0; i < cookies.length; i++) {
+					var cookie = cookies[i].trim();
+					// Does this cookie string begin with the name we want?
+					if (cookie.substring(0, name.length + 1) === (name + '=')) {
+						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+						break;
+					}
+				}
+			}
+			return cookieValue;
+		}
+
+		var csrftoken = getCookie('csrftoken');
+
+		$.ajaxSetup({
+			beforeSend: function(xhr, settings) {
+				if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+					xhr.setRequestHeader("X-CSRFToken", csrftoken);
+				}
+			}
+		});
+
+		$('#homeSearchBtn').click(function() {
+			var locationInput = $('#homeLocationInput').val();
+			var datesInput = $('#homeDateInput').val();
+
+			if (locationInput.trim() !== '' && datesInput.trim() !== '') {
+				$('#popUpLocationDiv').hide();
+				$('#popUpDateDiv').hide();
+			}
+		});
+		$('#popUpSearchBtn').click(function() {
+			var homeLocationInput = $('#homeLocationInput').val();
+			var homeDatesInput = $('#homeDateInput').val();
+			
+			var popUpLocationInput = $('#popUpLocationInput').val();
+			var popUpDateInput = $('#popUpDateInput').val();
+			var popUpRadiusSelect = $('#popUpRadiusSelect');
+			var popUpDifficultSelect = $('#popUpDifficultSelect');
+
+			var location;
+			var dates;
+			var radius;
+			var difficulty;
+			var equipPresent;
+
+			if (homeLocationInput.trim() != '' && homeDatesInput.trim() != '') {
+				location = homeLocationInput.trim();
+				dates = homeDatesInput.trim();
+			} else {
+				location = popUpLocationInput.trim();
+				dates = popUpDateInput.trim();
+			}
+
+			radius = popUpRadiusSelect.val();
+			difficulty = popUpDifficultSelect.val();
+
+			equipPresent = $("input[name='popUpEquipRadio']:checked").val();
+
+			$.ajax({
+				url: '/results/',
+				method: 'POST',
+				data: {
+					location: location,
+					dates: dates,
+					radius: radius,
+					difficulty: difficulty,
+					equipPresent: equipPresent,
+				},
+				success: function(response) {
+					if (response.success) {
+						location.reload();
+					} else {
+						alert('Error occurred. Please try again later.');
+					}
+				}
+			});
+		});
+	});
+</script>
 
 <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
 <script>
