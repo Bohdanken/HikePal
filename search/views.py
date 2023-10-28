@@ -31,6 +31,7 @@ def search_helper(request):
 
         print(user_location, trip_dates, search_radius, trip_difficulty, equip_present)
         resulting_dict = _get_search_results_helper(user_location, trip_dates, search_radius, trip_difficulty, equip_present)
+        print(resulting_dict)
 
         context = {
             "resulting_dict": resulting_dict,
@@ -51,7 +52,7 @@ def _get_search_results_helper(location, dates, radius, difficulty, equipPresent
     second_date = f"{day_dates[0]}.{month_dates[0]}"
 
     resulting_dict = {}
-    #resulting_dict = imaginary_function(location, radius, difficulty)
+    resulting_dict = transition.get_final_data(first_date, second_date, difficulty, location, radius)
 
     return resulting_dict
 

@@ -12,7 +12,7 @@ def extract_coordinates(trail_data):
 
 
 def get_final_data(start_date,end_date, difficulty,city,radius):
-    trail_data = ask_for_trails({"difficulty": {difficulty}, {"city"}: {city}, "radius": {radius}})
+    trail_data = ask_for_trails({"difficulty": {difficulty}, "city": {city}, "radius": {radius}})
     coordinates, names = extract_coordinates(trail_data)
     forecasts = []
     for i in range(len(coordinates)):
