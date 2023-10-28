@@ -90,7 +90,7 @@ def good_weather(days_data):
             good_humidity = humidity is not None and humidity <= 90
             good_precip = precip is None or precip <= 2
             good_snow = snow is None or snow < 1
-            good_conditions = conditions is not None and conditions.lower() not in ["Rain", "Snow"]
+            good_conditions = conditions is not None and conditions.lower() not in ["Rain","Snow"]
             if good_feelslike and good_humidity and good_precip and good_snow and good_conditions:
                 good_hours += 1
     return good_hours / total_hours >= 0.75
@@ -121,7 +121,7 @@ def forecast_between_dates_coordinates_days(latitude, longitude, start_date, end
         print(f"Failed to retrieve data: {response.status_code}")
         return None
 
-
+"""
 print("The names and the order of keys in the returned list's dictionaries")
 print()
 location = "Glasgow, UK"
@@ -130,3 +130,4 @@ end_date = "2023-11-03"
 output = forecast_between_dates_location(location, start_date, end_date)
 print(json.dumps(output, indent=4))
 print(good_weather(output))
+"""
