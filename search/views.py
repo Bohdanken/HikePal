@@ -4,6 +4,8 @@ from datetime import datetime
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
+from chatgpt import transition
+
 # ADD LIMIT FOR DATE, UP TO 10 DAYS FROM CURRENT DATE.
 
 def chatbot_view(request):
