@@ -24,8 +24,4 @@ def ask_for_trails(parameters):
     for res in content:
         name, coords = res.split('%')
         dic[name.rstrip(' ')] = coords.strip(' ')
-    print(dic)
     return dic
-
-
-ask_for_trails({"city": "Sydney", "radius": 100})

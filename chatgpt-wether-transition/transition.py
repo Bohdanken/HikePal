@@ -1,5 +1,6 @@
 from chatgpt.gpt_requests import ask_for_trails
 
+
 def extract_coordinates(trail_data):
     coordinates = []
 
@@ -9,6 +10,7 @@ def extract_coordinates(trail_data):
         coordinates.append((float(lat), float(lon)))
 
     return coordinates
+
 
 trail_data = ask_for_trails({"city": "Sydney", "radius": 100})
 coordinates = extract_coordinates(trail_data)
