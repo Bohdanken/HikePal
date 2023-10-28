@@ -34,18 +34,15 @@
 				
 				<!-- Logo -->
 				<div id="logo">
-					<a href="/"><img src="{% static 'images/logo.png' %}" alt="HikePal"></a>
+					<a href="/"><img src="{% static 'images/logo.svg' %}" style="height: 180px;" alt="HikePal"></a>
 				</div>
 
 				<!-- Main Navigation -->
 				<nav id="navigation">
 					<ul id="responsive">
 
-						<li><a href="#" class="current">Home</a>
+						<li><a href="#" class="current">Search</a>
 							<ul class="dropdown-nav">
-								<li><a href="index.html">Home 1</a></li>
-								<li><a href="index-2.html">Home 2</a></li>
-								<li><a href="index-3.html">Home 3</a></li>
 							</ul>
 						</li>
 
@@ -323,7 +320,7 @@
 <!-- Intro Banner
 ================================================== -->
 <!-- add class "disable-gradient" to enable consistent background overlay -->
-<div class="intro-banner" data-background-image="images/home-background.jpg">
+<div class="intro-banner disable-gradient" data-background-image="{% static 'images/home-wallpaper.jpg' %}">
 	<div class="container">
 		
 		<!-- Intro Headline -->
@@ -356,7 +353,7 @@
 					<!-- Search Field -->
 					<div class="intro-search-field">
 						<label for ="intro-keywords" class="field-title ripple-effect">What dates?</label>
-						<input id="intro-keywords" type="text" placeholder="Please select...">
+						<input id="intro-keywords" type="text" placeholder="Oct 12 - Oct 15...">
 					</div>
 
 					<!-- Button -->
@@ -372,16 +369,16 @@
 			<div class="col-md-12">
 				<ul class="intro-stats margin-top-45 hide-under-992px">
 					<li>
-						<strong class="counter">1,586</strong>
-						<span>Jobs Posted</span>
+						<strong>&#8734;</strong>
+						<span>Hiking Spots</span>
 					</li>
 					<li>
 						<strong class="counter">3,543</strong>
-						<span>Tasks Posted</span>
+						<span>Happy Hikers</span>
 					</li>
 					<li>
-						<strong class="counter">1,232</strong>
-						<span>Freelancers</span>
+						<strong class="counter">152</strong>
+						<span>Reviews</span>
 					</li>
 				</ul>
 			</div>
@@ -400,7 +397,7 @@
 			<div class="col-xl-12">
 
 				<div class="section-headline centered margin-bottom-15">
-					<h3>Popular Job Categories</h3>
+					<h3>Popular Trip Stacks</h3>
 				</div>
 
 				<!-- Category Boxes Container -->
@@ -519,8 +516,8 @@
 				
 				<!-- Section Headline -->
 				<div class="section-headline margin-top-0 margin-bottom-35">
-					<h3>Featured Jobs</h3>
-					<a href="jobs-list-layout-full-page-map.html" class="headline-link">Browse All Jobs</a>
+					<h3>Featured Destinations</h3>
+					<!--<a href="jobs-list-layout-full-page-map.html" class="headline-link">Browse All Jobs</a>-->
 				</div>
 				
 				<!-- Jobs Container -->
@@ -700,7 +697,7 @@
 			<!-- Section Headline -->
 			<div class="col-xl-12">
 				<div class="section-headline centered margin-top-0 margin-bottom-45">
-					<h3>Featured Cities</h3>
+					<h3>Our Hikers Usually From</h3>
 				</div>
 			</div>
 
@@ -708,8 +705,8 @@
 				<!-- Photo Box -->
 				<a href="jobs-list-layout-1.html" class="photo-box" data-background-image="images/featured-city-01.jpg">
 					<div class="photo-box-content">
-						<h3>San Francisco</h3>
-						<span>376 Jobs</span>
+						<h3>Glasgow</h3>
+						<span>200+ adventurers</span>
 					</div>
 				</a>
 			</div>
@@ -718,8 +715,8 @@
 				<!-- Photo Box -->
 				<a href="jobs-list-layout-full-page-map.html" class="photo-box" data-background-image="images/featured-city-02.jpg">
 					<div class="photo-box-content">
-						<h3>New York</h3>
-						<span>645 Jobs</span>
+						<h3>Edinburgh</h3>
+						<span>100+ adventurers</span>
 					</div>
 				</a>
 			</div>
@@ -728,8 +725,8 @@
 				<!-- Photo Box -->
 				<a href="jobs-grid-layout-full-page.html" class="photo-box" data-background-image="images/featured-city-03.jpg">
 					<div class="photo-box-content">
-						<h3>Los Angeles</h3>
-						<span>832 Jobs</span>
+						<h3>London</h3>
+						<span>1000+ adventurers</span>
 					</div>
 				</a>
 			</div>
@@ -738,8 +735,8 @@
 				<!-- Photo Box -->
 				<a href="jobs-list-layout-2.html" class="photo-box" data-background-image="images/featured-city-04.jpg">
 					<div class="photo-box-content">
-						<h3>Miami</h3>
-						<span>513 Jobs</span>
+						<h3>Manchester</h3>
+						<span>500+ adventurers</span>
 					</div>
 				</a>
 			</div>
@@ -758,8 +755,7 @@
 			<div class="col-xl-12">
 				<!-- Section Headline -->
 				<div class="section-headline margin-top-0 margin-bottom-25">
-					<h3>Highest Rated Freelancers</h3>
-					<a href="freelancers-grid-layout.html" class="headline-link">Browse All Freelancers</a>
+					<h3>Latest Adventurer Reviews</h3>
 				</div>
 			</div>
 
@@ -1026,98 +1022,6 @@
 </div>
 <!-- Highest Rated Freelancers / End-->
 
-
-<!-- Membership Plans -->
-<div class="section padding-top-60 padding-bottom-75">
-	<div class="container">
-		<div class="row">
-
-			<div class="col-xl-12">
-				<!-- Section Headline -->
-				<div class="section-headline centered margin-top-0 margin-bottom-35">
-					<h3>Membership Plans</h3>
-				</div>
-			</div>
-
-
-			<div class="col-xl-12">
-
-				<!-- Billing Cycle  -->
-				<div class="billing-cycle-radios margin-bottom-70">
-					<div class="radio billed-monthly-radio">
-						<input id="radio-5" name="radio-payment-type" type="radio" checked>
-						<label for="radio-5"><span class="radio-label"></span> Billed Monthly</label>
-					</div>
-
-					<div class="radio billed-yearly-radio">
-						<input id="radio-6" name="radio-payment-type" type="radio">
-						<label for="radio-6"><span class="radio-label"></span> Billed Yearly <span class="small-label">Save 10%</span></label>
-					</div>
-				</div>
-
-				<!-- Pricing Plans Container -->
-				<div class="pricing-plans-container">
-
-					<!-- Plan -->
-					<div class="pricing-plan">
-						<h3>Basic Plan</h3>
-						<p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-						<div class="pricing-plan-label billed-monthly-label"><strong>$19</strong>/ monthly</div>
-						<div class="pricing-plan-label billed-yearly-label"><strong>$205</strong>/ yearly</div>
-						<div class="pricing-plan-features">
-							<strong>Features of Basic Plan</strong>
-							<ul>
-								<li>1 Listing</li>
-								<li>30 Days Visibility</li>
-								<li>Highlighted in Search Results</li>
-							</ul>
-						</div>
-						<a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
-					</div>
-
-					<!-- Plan -->
-					<div class="pricing-plan recommended">
-						<div class="recommended-badge">Recommended</div>
-						<h3>Standard Plan</h3>
-						<p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-						<div class="pricing-plan-label billed-monthly-label"><strong>$49</strong>/ monthly</div>
-						<div class="pricing-plan-label billed-yearly-label"><strong>$529</strong>/ yearly</div>
-						<div class="pricing-plan-features">
-							<strong>Features of Standard Plan</strong>
-							<ul>
-								<li>5 Listings</li>
-								<li>60 Days Visibility</li>
-								<li>Highlighted in Search Results</li>
-							</ul>
-						</div>
-						<a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
-					</div>
-
-					<!-- Plan -->
-					<div class="pricing-plan">
-						<h3>Extended Plan</h3>
-						<p class="margin-top-10">One time fee for one listing or task highlighted in search results.</p>
-						<div class="pricing-plan-label billed-monthly-label"><strong>$99</strong>/ monthly</div>
-						<div class="pricing-plan-label billed-yearly-label"><strong>$1069</strong>/ yearly</div>
-						<div class="pricing-plan-features">
-							<strong>Features of Extended Plan</strong>
-							<ul>
-								<li>Unlimited Listings Listing</li>
-								<li>90 Days Visibility</li>
-								<li>Highlighted in Search Results</li>
-							</ul>
-						</div>
-						<a href="pages-checkout-page.html" class="button full-width margin-top-20">Buy Now</a>
-					</div>
-				</div>
-
-			</div>
-
-		</div>
-	</div>
-</div>
-<!-- Membership Plans / End-->
-
 <!-- Footer
 ================================================== -->
 <div id="footer">
@@ -1266,7 +1170,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-xl-12">
-					© 2018 <strong>HikePal</strong>. All Rights Reserved.
+					© 2023 <strong>HikePal</strong>. All Rights Reserved.
 				</div>
 			</div>
 		</div>
