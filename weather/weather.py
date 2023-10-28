@@ -12,8 +12,6 @@ API_KEY = os.getenv("weather_api_key")
 [location]/[date1]/[date2]?key=YOUR_API_KEY """
 
 
-
-
 def get_weather_url(location=None, start_date=None, end_date=None, latitude=None, longitude=None):
     base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
     if location:
@@ -27,8 +25,6 @@ def get_weather_url(location=None, start_date=None, end_date=None, latitude=None
         f"&elements=cloudcover,description,feelslike,precip,humidity,conditions,datetime,snow"
     )
     return f"{base_url}{location_date}{params}"
-
-
 
 
 def filter_forecast_data(forecast_data):
@@ -57,8 +53,6 @@ def filter_forecast_data(forecast_data):
     return filtered_data['days']
 
 
-
-
 def forecast_between_dates_location(location, start_date, end_date):
     URL = get_weather_url(location=location, start_date=start_date, end_date=end_date)
     response = requests.get(URL)
@@ -68,8 +62,6 @@ def forecast_between_dates_location(location, start_date, end_date):
     else:
         print(f"Failed to retrieve data: {response.status_code}")
         return None
-
-
 
 
 def forecast_between_dates_coordinates(longitude, latitude, start_date, end_date):
@@ -98,16 +90,17 @@ def good_weather(days_data):
             good_humidity = humidity is not None and humidity <= 90
             good_precip = precip is None or precip <= 2
             good_snow = snow is None or snow < 1
-            good_conditions = conditions is not None and conditions.lower() not in ["Rain","Snow"]
+            good_conditions = conditions is not None and conditions.lower() not in ["Rain", "Snow"]
             if good_feelslike and good_humidity and good_precip and good_snow and good_conditions:
                 good_hours += 1
     return good_hours / total_hours >= 0.75
 
 
-
 """
 Gives forecast for only days(Much simpler than main one
 """
+
+
 def forecast_between_dates_coordinates_days(latitude, longitude, start_date, end_date):
     base_url = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
     coordinates_date = f"{latitude},{longitude}/{start_date}/{end_date}"
@@ -137,5 +130,3 @@ end_date = "2023-11-03"
 output = forecast_between_dates_location(location, start_date, end_date)
 print(json.dumps(output, indent=4))
 print(good_weather(output))
-
-
