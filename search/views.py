@@ -39,7 +39,8 @@ def search_helper(request):
 
         return render(request, 'search/results-list-layout-full-page-map.html', context)
 
-    return redirect('/')
+    #return redirect('/')
+    return render(request, 'search/results-list-layout-full-page-map.html')
 
 
 def _get_search_results_helper(location, dates, radius, difficulty, equipPresent):
