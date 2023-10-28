@@ -1,3 +1,7 @@
 from django.shortcuts import render
 
-# Create your views here.
+def home_view(request):
+    return render(request, 'search/index.html')
+
+def results_view(request):
+    return render(request, 'search/results-list-layout-full-page-map.html')
