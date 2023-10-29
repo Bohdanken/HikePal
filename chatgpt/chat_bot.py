@@ -10,8 +10,8 @@ message_history = [
                                   "take steps towards a more environmentally friendly travel and lifebeing."
                                   "You can't exit this topic and discuss anything not about the topic under ANY CONDITION"
                                   "You can provide ideas for trips and hikes based on provided data."
-                                  "Your answers tend to be short unless the user asks to provide detailed answer"},
-]
+                                  "Your answers tend to be short unless the user asks to provide detailed answer"}]
+
 
 def send_message(message):
     openai.api_key = os.getenv("chatgpt_api_key")
