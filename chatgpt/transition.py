@@ -1,4 +1,5 @@
 from chatgpt.gpt_requests import ask_for_trails
+from datataking.google_maps import get_place_id, get_photos, get_place_rating
 from weather import weather
 
 def extract_coordinates(trail_data):
@@ -23,9 +24,14 @@ def get_final_data(start_date,end_date, difficulty,city,radius):
             start_date=start_date,
             end_date=end_date
         ))
+        place_id = get_place_id(names[i])
+        photos = get_photos(place_id)
+        rating = get_place_rating(names[i])
         trail_data[names[i]]["weather"]=weather.good_weather(forecasts[-1])
+        trail_data[names[i]]["photos"] = photos
+        trail_data[names[i]]["rating"] = rating
     return trail_data
 
-#start_date = "2023-10-29"
-#end_date = "2023-10-30"
-#print(get_final_data(start_date,end_date,"Moderate","Glasgow",50))
+start_date = "2023-10-30"
+end_date = "2023-11-01"
+print(get_final_data(start_date,end_date,"Moderate","Edinburgh",150))
