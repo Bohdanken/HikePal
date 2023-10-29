@@ -113,7 +113,7 @@
 	<div class="full-page-content-container" data-simplebar>
 		<div class="full-page-content-inner">
 
-			<h3 class="page-title">Search Results {{ resulting_dict }}</h3>
+			<h3 class="page-title">Your Search Results</h3>
 
 			<div class="notify-box margin-top-15">
 				<div class="switch-container">
@@ -132,257 +132,39 @@
 			</div>
 
 			<div class="listings-container compact-list-layout margin-top-35 margin-bottom-25">
-				
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
 
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
+				{% for object_name, object_data in resulting_dict.items %}
+					<!-- Job Listing -->
+					<a href="single-job-page.html" class="job-listing">
 
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-01.png" alt="">
-						</div>
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
 
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Bilingual Event Support Specialist</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Hexagon <div class="verified-badge" title="Verified Employer" data-tippy-placement="top"></div></li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<br>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								<img src="images/company-logo-05.png" alt="">
 							</div>
-						</div>
 
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>	
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">{{ object_name }}</h3>
 
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-05.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Competition Law Officer</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Laxo</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-location-on"></i> {{ object_data.distance }} from {{ user_location }}</li>
+										<li><i class="icon-material-outline-business-center"></i> Expected Weather: {% if object_data.weather %}Good{% else %}Bad{% endif %}</li>
+										<li><i class="icon-material-outline-access-time"></i> Difficulty: {{ trip_difficulty }}</li>
+										<li><i class="icon-material-outline-business"></i> {{ object_data.description }}</li>
+									</ul>
+								</div>
 							</div>
+
+							<!-- Bookmark -->
+							<span class="bookmark-icon"></span>
 						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-02.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Barista and Cashier</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Coffee</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-				
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-03.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Restaurant General Manager</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> King <div class="verified-badge" title="Verified Employer" data-tippy-placement="top"></div></li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-05.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">International Marketing Coordinator</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Skyist</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-04.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Administrative Assistant</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Mates</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-05.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Construction Labourers</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Podous</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
-
-				<!-- Job Listing -->
-				<a href="single-job-page.html" class="job-listing">
-
-					<!-- Job Listing Details -->
-					<div class="job-listing-details">
-
-						<!-- Logo -->
-						<div class="job-listing-company-logo">
-							<img src="images/company-logo-06.png" alt="">
-						</div>
-
-						<!-- Details -->
-						<div class="job-listing-description">
-							<h3 class="job-listing-title">Human Resources Consultant</h3>
-
-							<!-- Job Listing Footer -->
-							<div class="job-listing-footer">
-								<ul>
-									<li><i class="icon-material-outline-business"></i> Trideo</li>
-									<li><i class="icon-material-outline-location-on"></i> San Francisco</li>
-									<li><i class="icon-material-outline-business-center"></i> Full Time</li>
-									<li><i class="icon-material-outline-access-time"></i> 2 days ago</li>
-								</ul>
-							</div>
-						</div>
-
-						<!-- Bookmark -->
-						<span class="bookmark-icon"></span>
-					</div>
-				</a>
+					</a>
+				{% endfor %}
 
 			</div>
 
@@ -499,7 +281,7 @@ $('#snackbar-user-status label').click(function() {
 
 <!-- Google API & Maps -->
 <!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
-<script src="https://maps.googleapis.com/maps/api/js?key=&libraries=places"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGyAoxcrGexAsnhwGGDVuWnUU2zunz2Lc&libraries=places"></script>
 <script src="{% static 'js/infobox.min.js' %}"></script>
 <script src="{% static 'js/markerclusterer.js' %}"></script>
 <script src="{% static 'js/maps.js' %}"></script>

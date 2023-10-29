@@ -23,11 +23,11 @@ def search_helper(request):
     Helper function for rendering search request.
     """
     if request.method == 'POST':
-        user_location = request.POST.get('location')
-        trip_dates = request.POST.get('dates')
-        search_radius = request.POST.get('radius')
-        trip_difficulty = request.POST.get('difficulty')
-        equip_present = request.POST.get('equipPresent')
+        user_location = request.POST.get('popUpLocationInput')
+        trip_dates = request.POST.get('popUpDateInput')
+        search_radius = request.POST.get('popUpRadiusSelect')
+        trip_difficulty = request.POST.get('popUpDifficultSelect')
+        equip_present = request.POST.get('popUpEquipRadio')
 
         print(user_location, trip_dates, search_radius, trip_difficulty, equip_present)
         resulting_dict = _get_search_results_helper(user_location, trip_dates, search_radius, trip_difficulty, equip_present)
@@ -35,6 +35,11 @@ def search_helper(request):
 
         context = {
             "resulting_dict": resulting_dict,
+            "user_location": user_location,
+            "trip_dates": trip_dates,
+            "search_radius": search_radius,
+            "trip_difficulty": trip_difficulty.capitalize(),
+            "equip_present": equip_present,
         }
 
         return render(request, 'search/results-list-layout-full-page-map.html', context)

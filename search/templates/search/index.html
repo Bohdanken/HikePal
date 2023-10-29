@@ -985,13 +985,13 @@
 				</div>
 					
 				<!-- Form -->
-				<div>
-
+				<form method="post" action="/results/" id="popUpSearchForm">
+					{% csrf_token %}
 					<div class="feedback-yes-no" id="popUpLocationDiv">
 						<strong style="margin-bottom: 10px;">Where are you located?</strong>
 						<div class="input-with-icon">
 							<div>
-								<input class="with-border" type="text" placeholder="City, Town..." style="margin-bottom: 0px;" id="popUpLocationInput">
+								<input class="with-border" type="text" placeholder="City, Town..." style="margin-bottom: 0px;" name="popUpLocationInput" id="popUpLocationInput">
 							</div>
 							<i class="icon-material-outline-location-on"></i>
 						</div>
@@ -1001,7 +1001,7 @@
 						<strong style="margin-bottom: 10px;">What dates trip should take place on?</strong>
 						<div class="input-with-icon">
 							<div>
-								<input class="with-border" type="text" placeholder="Mar 28 - Mar 29" style="margin-bottom: 0px;" id="popUpDateInput">
+								<input class="with-border" type="text" placeholder="Mar 28 - Mar 29" style="margin-bottom: 0px;" name="popUpDateInput" id="popUpDateInput">
 							</div>
 							<i class="icon-material-outline-location-on"></i>
 						</div>
@@ -1009,7 +1009,7 @@
 
 					<div class="feedback-yes-no">
 						<strong style="margin-bottom: 10px;">What's your radius of search?</strong>
-						<select class="selectpicker with-border" data-size="7" title="Please Select" id="popUpRadiusSelect">
+						<select class="selectpicker with-border" data-size="7" title="Please Select" name="popUpRadiusSelect" id="popUpRadiusSelect">
 							<option value="10">~ 10km</option>
 							<option value="25">~ 25km</option>
 							<option value="50">~ 50km</option>
@@ -1020,7 +1020,7 @@
 
 					<div class="feedback-yes-no">
 						<strong style="margin-bottom: 10px;">Expected level of difficulty?</strong>
-						<select class="selectpicker with-border" data-size="7" title="Please Select" id="popUpDifficultSelect">
+						<select class="selectpicker with-border" data-size="7" title="Please Select" name="popUpDifficultSelect" id="popUpDifficultSelect">
 							<option value="easy">Easy</option>
 							<option value="moderate">Moderate</option>
 							<option value="hard">Hard</option>
@@ -1041,10 +1041,9 @@
 						</div>
 					</div>
 
-				</div>
-				
-				<!-- Button -->
-				<button class="button full-width button-sliding-icon ripple-effect" style="margin-top: 35px;" id="popUpSearchBtn">Search Destinations <i class="icon-material-outline-search"></i></button>
+					<button class="button full-width button-sliding-icon ripple-effect" style="margin-top: 35px;" id="popUpSearchBtn" type="submit">Search Destinations <i class="icon-material-outline-search"></i></button>
+
+				</form>
 
 			</div>
 
@@ -1072,32 +1071,6 @@
 <!-- Search inputs control -->
 <script>
 	$(document).ready(function() {
-		function getCookie(name) {
-			var cookieValue = null;
-			if (document.cookie && document.cookie !== '') {
-				var cookies = document.cookie.split(';');
-				for (var i = 0; i < cookies.length; i++) {
-					var cookie = cookies[i].trim();
-					// Does this cookie string begin with the name we want?
-					if (cookie.substring(0, name.length + 1) === (name + '=')) {
-						cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-						break;
-					}
-				}
-			}
-			return cookieValue;
-		}
-
-		var csrftoken = getCookie('csrftoken');
-
-		$.ajaxSetup({
-			beforeSend: function(xhr, settings) {
-				if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
-					xhr.setRequestHeader("X-CSRFToken", csrftoken);
-				}
-			}
-		});
-
 		$('#homeSearchBtn').click(function() {
 			var locationInput = $('#homeLocationInput').val();
 			var datesInput = $('#homeDateInput').val();
@@ -1105,52 +1078,12 @@
 			if (locationInput.trim() !== '' && datesInput.trim() !== '') {
 				$('#popUpLocationDiv').hide();
 				$('#popUpDateDiv').hide();
+				$('[name="popUpLocationInput"]').val(locationInput.trim());
+				$('[name="popUpDateInput"]').val(datesInput.trim());
 			}
 		});
-		
-		$('#popUpSearchBtn').click(function() {
-			var homeLocationInput = $('#homeLocationInput').val();
-			var homeDatesInput = $('#homeDateInput').val();
-			
-			var popUpLocationInput = $('#popUpLocationInput').val();
-			var popUpDateInput = $('#popUpDateInput').val();
-			var popUpRadiusSelect = $('#popUpRadiusSelect');
-			var popUpDifficultSelect = $('#popUpDifficultSelect');
-
-			var location;
-			var dates;
-			var radius;
-			var difficulty;
-			var equipPresent;
-
-			if (homeLocationInput.trim() != '' && homeDatesInput.trim() != '') {
-				location = homeLocationInput.trim();
-				dates = homeDatesInput.trim();
-			} else {
-				location = popUpLocationInput.trim();
-				dates = popUpDateInput.trim();
-			}
-
-			radius = popUpRadiusSelect.val();
-			difficulty = popUpDifficultSelect.val();
-
-			equipPresent = $("input[name='popUpEquipRadio']:checked").val();
-
-			$.ajax({
-				url: '/results/',
-				method: 'POST',
-				data: {
-					location: location,
-					dates: dates,
-					radius: radius,
-					difficulty: difficulty,
-					equipPresent: equipPresent,
-				},
-				success: function(response) {
-					$('.lds-heart').css('display', 'block');
-					window.location.href = '/results/';
-				}
-			});
+		$('form').submit(function (event) {
+			$('.lds-heart').css('display', 'block');
 		});
 	});
 </script>
