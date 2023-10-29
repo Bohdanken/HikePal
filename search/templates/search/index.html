@@ -964,6 +964,7 @@
 
 <!-- Search Details Popup
 ================================================== -->
+<div class="lds-heart" style="display: none;"><div></div></div>
 <div id="small-dialog-2" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
 
 	<!--Tabs -->
@@ -1106,6 +1107,7 @@
 				$('#popUpDateDiv').hide();
 			}
 		});
+		
 		$('#popUpSearchBtn').click(function() {
 			var homeLocationInput = $('#homeLocationInput').val();
 			var homeDatesInput = $('#homeDateInput').val();
@@ -1145,11 +1147,8 @@
 					equipPresent: equipPresent,
 				},
 				success: function(response) {
-					if (response.success) {
-						location.reload();
-					} else {
-						alert('Error occurred. Please try again later.');
-					}
+					$('.lds-heart').css('display', 'block');
+					window.location.href = '/results/';
 				}
 			});
 		});
