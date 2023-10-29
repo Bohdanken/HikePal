@@ -1,0 +1,701 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+<head>
+
+<!-- Basic Page Needs
+================================================== -->
+<title>HikePal</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<!-- CSS
+================================================== -->
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<link rel="stylesheet" href="{% static 'css/colors/blue.css' %}">
+
+</head>
+<body>
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+<!-- Header Container
+================================================== -->
+<header id="header-container" class="fullwidth not-sticky">
+
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			
+			<!-- Left Side Content -->
+			<div class="left-side">
+				
+				<!-- Logo -->
+				<div id="logo">
+					<a href="/"><img src="{% static 'images/logo.svg' %}" style="height: 180px;" alt="HikePal"></a>
+				</div>
+
+				<!-- Main Navigation -->
+				<nav id="navigation">
+					<ul id="responsive">
+
+						<li><a href="#" class="current">Search Destinations</a>
+							<ul class="dropdown-nav">
+								<li><a href="/">Search With AI</a></li>
+								<li><a href="/">Search With Community (Prod)</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">Ask AI</a>
+							<ul class="dropdown-nav">
+								<li><a href="/ask">Ask HikePal AI</a></li>
+								<li><a href="/">How To Use? (Prod)</a></li>
+							</ul>
+						</li>
+
+						<li><a href="#">GitHub</a>
+							<ul class="dropdown-nav">
+								<li><a href="/">Our GitHub</a></li>
+							</ul>
+						</li>
+					</ul>
+				</nav>
+				<div class="clearfix"></div>
+				<!-- Main Navigation / End -->
+				
+			</div>
+			<!-- Left Side Content / End -->
+
+
+			<!-- Right Side Content / End -->
+			<div class="right-side">
+
+				<!--  User Notifications -->
+				<div class="header-widget hide-on-mobile" style="border-left: 0px;">
+					
+					<!-- Messages -->
+					<div class="header-notifications" style="margin-top: 11.5px;">
+						<div class="intro-search-button">
+							<a href="#" class="button" style="height: 42px; line-height: 42px; padding: 0 20px;">Support Us</a>
+						</div>
+					</div>
+
+				</div>
+				<!--  User Notifications / End -->
+
+				<!-- Mobile Navigation Button -->
+				<span class="mmenu-trigger">
+					<button class="hamburger hamburger--collapse" type="button">
+						<span class="hamburger-box">
+							<span class="hamburger-inner"></span>
+						</span>
+					</button>
+				</span>
+
+			</div>
+			<!-- Right Side Content / End -->
+
+		</div>
+	</div>
+	<!-- Header / End -->
+
+</header>
+<div class="clearfix"></div>
+<!-- Header Container / End -->
+
+<!-- Page Content
+================================================== -->
+<div class="full-page-container with-map">
+
+	<!-- Full Page Content -->
+	<div class="full-page-content-container" data-simplebar>
+		<div class="full-page-content-inner">
+
+			<h3 class="page-title">Your Search Results</h3>
+
+			<div class="notify-box margin-top-15" style="background-color: #2a41e8; color: #fff;">
+				<div class="switch-container">
+					<span class="switch-text">Best hiking spots delivered to you for your enjoyment.</span>
+				</div>
+			</div>
+
+			<div class="listings-container compact-list-layout margin-top-35 margin-bottom-25">
+
+				{% for object_name, object_data in resulting_dict.items %}
+					<!-- Job Listing -->
+					<a class="job-listing">
+
+						<!-- Job Listing Details -->
+						<div class="job-listing-details">
+
+							<!-- Logo -->
+							<div class="job-listing-company-logo">
+								{% if object_data.photos %}
+									<img src="{{object_data.photos.0}}" alt="">
+								{% else %}
+									<img src="{% static 'images/no-photo.png' %}" alt="">
+								{% endif %}
+							</div>
+
+							<!-- Details -->
+							<div class="job-listing-description">
+								<h3 class="job-listing-title">{{ object_name }}</h3>
+
+								<!-- Job Listing Footer -->
+								<div class="job-listing-footer">
+									<ul>
+										<li><i class="icon-material-outline-location-on"></i> {{ object_data.distance }} from {{ user_location }}</li>
+										<li><i class="icon-material-outline-business-center"></i> Expected Weather: {% if object_data.weather %}Good{% else %}Bad{% endif %}</li>
+										<li><i class="icon-material-outline-access-time"></i> Difficulty: {{ trip_difficulty }}</li>
+										{% if object_data.rating %}<li><i class="icon-material-outline-access-time"></i> Rating: {{ object_data.rating }} stars</li>{% endif %}
+										<li><i class="icon-material-outline-business"></i> {{ object_data.description }}</li>
+									</ul>
+								</div>
+							</div>
+
+							<!-- Bookmark -->
+							<span class="bookmark-icon"></span>
+						</div>
+					</a>
+				{% endfor %}
+
+			</div>
+
+			<!-- Pagination -->
+			<div class="clearfix"></div>
+			<div class="pagination-container margin-top-20 margin-bottom-20">
+				<nav class="pagination">
+					<ul>
+						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
+						<li><a href="#" class="ripple-effect current-page">1</a></li>
+						<li><a href="#" class="ripple-effect">2</a></li>
+						<li><a href="#" class="ripple-effect">3</a></li>
+						<li><a href="#" class="ripple-effect">4</a></li>
+						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="clearfix"></div>
+			<!-- Pagination / End -->
+
+			<!-- Footer -->
+			<div class="small-footer margin-top-15">
+				<div class="small-footer-copyrights">
+					© 2023 <strong>HikePal</strong>. All Rights Reserved.
+				</div>
+				<ul class="footer-social-links">
+					<li>
+						<a href="#" title="Facebook" data-tippy-placement="top">
+							<i class="icon-brand-facebook-f"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Twitter" data-tippy-placement="top">
+							<i class="icon-brand-twitter"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="Google Plus" data-tippy-placement="top">
+							<i class="icon-brand-google-plus-g"></i>
+						</a>
+					</li>
+					<li>
+						<a href="#" title="LinkedIn" data-tippy-placement="top">
+							<i class="icon-brand-linkedin-in"></i>
+						</a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+			<!-- Footer / End -->
+
+		</div>
+	</div>
+	<!-- Full Page Content / End -->
+
+
+	<!-- Full Page Map -->
+	<div class="full-page-map-container">
+		<!-- Map -->
+	    <div id="map" data-map-zoom="12" data-map-scroll="true"></div>
+	</div>
+	<!-- Full Page Map / End -->
+
+</div>
+
+
+</div>
+<!-- Wrapper / End -->
+
+<!-- Scripts
+================================================== -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/jquery-migrate-3.0.0.min.js' %}"></script>
+<script src="{% static 'js/mmenu.min.js' %}"></script>
+<script src="{% static 'js/tippy.all.min.js' %}"></script>
+<script src="{% static 'js/simplebar.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'js/bootstrap-select.min.js' %}"></script>
+<script src="{% static 'js/snackbar.js' %}"></script>
+<script src="{% static 'js/clipboard.min.js' %}"></script>
+<script src="{% static 'js/counterup.min.js' %}"></script>
+<script src="{% static 'js/magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/slick.min.js' %}"></script>
+<script src="{% static 'js/custom.js' %}"></script>
+
+<!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
+<script>
+// Snackbar for user status switcher
+$('#snackbar-user-status label').click(function() { 
+	Snackbar.show({
+		text: 'Your status has been changed!',
+		pos: 'bottom-center',
+		showAction: false,
+		actionText: "Dismiss",
+		duration: 3000,
+		textColor: '#fff',
+		backgroundColor: '#383838'
+	}); 
+}); 
+</script>
+
+<!-- Google Autocomplete -->
+<script>
+	function initAutocomplete() {
+		 var options = {
+		  types: ['(cities)'],
+		  // componentRestrictions: {country: "us"}
+		 };
+
+		 var input = document.getElementById('autocomplete-input');
+		 var autocomplete = new google.maps.places.Autocomplete(input, options);
+	}
+</script>
+
+<!-- Google API & Maps -->
+<!-- Geting an API Key: https://developers.google.com/maps/documentation/javascript/get-api-key -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGyAoxcrGexAsnhwGGDVuWnUU2zunz2Lc&libraries=places"></script>
+<script src="{% static 'js/infobox.min.js' %}"></script>
+<script src="{% static 'js/markerclusterer.js' %}"></script>
+<!--<script src="{% static 'js/maps.js' %}"></script>-->
+<script>
+	(function($){
+    "use strict";
+
+    function mainMap() {
+
+      // Locations
+      // ----------------------------------------------- //
+      var ib = new InfoBox();
+
+      // Infobox Output
+      function locationData(jobURL, companyLogo, companyName, jobTitle, verifiedBadge) {
+          return(''+
+            '<a href="'+jobURL+'" class="job-listing">'+
+               '<div class="infoBox-close"><i class="icon-feather-x"></i></div>'+
+               '<div class="job-listing-details">'+
+                  '<div class="job-listing-company-logo">'+
+                    '<div class="'+verifiedBadge+'-badge"></div>'+
+                    '<img src="'+companyLogo+'" alt="">'+
+                  '</div>'+
+                  '<div class="job-listing-description">'+
+                    '<h4 class="job-listing-company">'+companyName+'</h4>'+
+                    '<h3 class="job-listing-title">'+jobTitle+'</h3>'+
+                  '</div>'+
+               '</div>'+
+            '</a>')
+      }
+
+      var locations = [
+		{% for object_name, object_data in resulting_dict.items %}
+	  		{% if object_data.photos %}
+				[
+				locationData('#','{{object_data.photos.0}}',"", '{{ object_name|escapejs }}', 'not-verified'),
+				{{ object_data.coordinates.0 }},
+				{{ object_data.coordinates.1 }},
+				0,
+				''
+				],
+			{% else %}
+				[
+				locationData('#','{% static "images/no-photo.png" %}',"", '{{ object_name|escapejs }}', 'not-verified'),
+				{{ object_data.coordinates.0 }},
+				{{ object_data.coordinates.1 }},
+				0,
+				''
+				],
+			{% endif %}
+		{% endfor %}
+		];
+
+
+
+      // Map Attributes
+      // ----------------------------------------------- //
+
+      var mapZoomAttr = $('#map').attr('data-map-zoom');
+      var mapScrollAttr = $('#map').attr('data-map-scroll');
+
+      if (typeof mapZoomAttr !== typeof undefined && mapZoomAttr !== false) {
+          var zoomLevel = parseInt(mapZoomAttr);
+      } else {
+          var zoomLevel = 5;
+      }
+
+      if (typeof mapScrollAttr !== typeof undefined && mapScrollAttr !== false) {
+         var scrollEnabled = parseInt(mapScrollAttr);
+      } else {
+        var scrollEnabled = false;
+      }
+
+
+      // Main Map
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: zoomLevel,
+        scrollwheel: scrollEnabled,
+        center: new google.maps.LatLng(55.862003, -4.312857),
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        panControl: false,
+        navigationControl: false,
+        streetViewControl: false,
+        gestureHandling: 'cooperative',
+
+        // Google Map Style
+        styles: [{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"23"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"color":"#f38eb0"}]},{"featureType":"poi.government","elementType":"geometry.fill","stylers":[{"color":"#ced7db"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#ffa5a8"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c7e5c8"}]},{"featureType":"poi.place_of_worship","elementType":"geometry.fill","stylers":[{"color":"#d6cbc7"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#c4c9e8"}]},{"featureType":"poi.sports_complex","elementType":"geometry.fill","stylers":[{"color":"#b1eaf1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":"100"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"},{"lightness":"100"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffd4a5"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffe9d2"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"weight":"3.00"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"weight":"0.30"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"36"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"color":"#e9e5dc"},{"lightness":"30"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":"100"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#d2e7f7"}]}]
+
+      });
+
+
+      // Infobox
+      // ----------------------------------------------- //
+
+      var boxText = document.createElement("div");
+      boxText.className = 'map-box'
+
+      var currentInfobox;
+
+      var boxOptions = {
+              content: boxText,
+              disableAutoPan: false,
+              alignBottom : true,
+              maxWidth: 0,
+              pixelOffset: new google.maps.Size(-160, 0),
+              zIndex: null,
+              boxStyle: {
+                width: "320px"
+              },
+              closeBoxMargin: "0",
+              closeBoxURL: "",
+              infoBoxClearance: new google.maps.Size(25, 25),
+              isHidden: false,
+              pane: "floatPane",
+              enableEventPropagation: false,
+      };
+
+
+      var markerCluster, overlay, i;
+      var allMarkers = [];
+
+      var clusterStyles = [
+        {
+          textColor: 'white',
+          url: '',
+          height: 50,
+          width: 50
+        }
+      ];
+
+
+      var markerIco;
+      for (i = 0; i < locations.length; i++) {
+
+        markerIco = locations[i][4];
+
+        var overlaypositions = new google.maps.LatLng(locations[i][1], locations[i][2]),
+
+        overlay = new CustomMarker(
+         overlaypositions,
+          map,
+          {
+            marker_id: i
+          },
+          markerIco
+        );
+
+        allMarkers.push(overlay);
+
+        google.maps.event.addDomListener(overlay, 'click', (function(overlay, i) {
+
+        return function() {
+             ib.setOptions(boxOptions);
+             boxText.innerHTML = locations[i][0];
+             ib.close();
+             ib.open(map, overlay);
+             currentInfobox = locations[i][3];
+
+            google.maps.event.addListener(ib,'domready',function(){
+              $('.infoBox-close').click(function(e) {
+                  e.preventDefault();
+                  ib.close();
+                  $('.map-marker-container').removeClass('clicked infoBox-opened');
+              });
+
+            });
+
+          }
+        })(overlay, i));
+
+      }
+
+
+      // Marker Clusterer Init
+      // ----------------------------------------------- //
+
+      var options = {
+         imagePath: 'images/',
+         styles : clusterStyles,
+         minClusterSize : 3
+      };
+
+      markerCluster = new MarkerClusterer(map, allMarkers, options);
+
+      google.maps.event.addDomListener(window, "resize", function() {
+          var center = map.getCenter();
+          google.maps.event.trigger(map, "resize");
+          map.setCenter(center);
+      });
+
+
+      // Custom User Interface Elements
+      // ----------------------------------------------- //
+
+      // Custom Zoom-In and Zoom-Out Buttons
+        var zoomControlDiv = document.createElement('div');
+        var zoomControl = new ZoomControl(zoomControlDiv, map);
+
+        function ZoomControl(controlDiv, map) {
+
+          zoomControlDiv.index = 1;
+          map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(zoomControlDiv);
+          // Creating divs & styles for custom zoom control
+          controlDiv.style.padding = '5px';
+          controlDiv.className = "zoomControlWrapper";
+
+          // Set CSS for the control wrapper
+          var controlWrapper = document.createElement('div');
+          controlDiv.appendChild(controlWrapper);
+
+          // Set CSS for the zoomIn
+          var zoomInButton = document.createElement('div');
+          zoomInButton.className = "custom-zoom-in";
+          controlWrapper.appendChild(zoomInButton);
+
+          // Set CSS for the zoomOut
+          var zoomOutButton = document.createElement('div');
+          zoomOutButton.className = "custom-zoom-out";
+          controlWrapper.appendChild(zoomOutButton);
+
+          // Setup the click event listener - zoomIn
+          google.maps.event.addDomListener(zoomInButton, 'click', function() {
+            map.setZoom(map.getZoom() + 1);
+          });
+
+          // Setup the click event listener - zoomOut
+          google.maps.event.addDomListener(zoomOutButton, 'click', function() {
+            map.setZoom(map.getZoom() - 1);
+          });
+
+      }
+
+      // Geo Location Button
+      $("#geoLocation, .input-with-icon.location a").click(function(e){
+          e.preventDefault();
+          geolocate();
+      });
+
+      function geolocate() {
+
+          if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function (position) {
+                  var pos = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                  map.setCenter(pos);
+                  map.setZoom(12);
+              });
+          }
+      }
+
+    }
+
+
+    // Map Init
+    var map =  document.getElementById('map');
+    if (typeof(map) != 'undefined' && map != null) {
+      google.maps.event.addDomListener(window, 'load',  mainMap);
+    }
+
+
+    // ---------------- Main Map / End ---------------- //
+
+
+    // Single Listing Map
+    // ----------------------------------------------- //
+
+    function singleListingMap() {
+
+      var myLatlng = new google.maps.LatLng({lng: $( '#singleListingMap' ).data('longitude'),lat: $( '#singleListingMap' ).data('latitude'), });
+
+      var single_map = new google.maps.Map(document.getElementById('singleListingMap'), {
+        zoom: 15,
+        center: myLatlng,
+        scrollwheel: false,
+        zoomControl: false,
+        mapTypeControl: false,
+        scaleControl: false,
+        panControl: false,
+        navigationControl: false,
+        streetViewControl: false,
+        styles:  [{"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"23"}]},{"featureType":"poi.attraction","elementType":"geometry.fill","stylers":[{"color":"#f38eb0"}]},{"featureType":"poi.government","elementType":"geometry.fill","stylers":[{"color":"#ced7db"}]},{"featureType":"poi.medical","elementType":"geometry.fill","stylers":[{"color":"#ffa5a8"}]},{"featureType":"poi.park","elementType":"geometry.fill","stylers":[{"color":"#c7e5c8"}]},{"featureType":"poi.place_of_worship","elementType":"geometry.fill","stylers":[{"color":"#d6cbc7"}]},{"featureType":"poi.school","elementType":"geometry.fill","stylers":[{"color":"#c4c9e8"}]},{"featureType":"poi.sports_complex","elementType":"geometry.fill","stylers":[{"color":"#b1eaf1"}]},{"featureType":"road","elementType":"geometry","stylers":[{"lightness":"100"}]},{"featureType":"road","elementType":"labels","stylers":[{"visibility":"off"},{"lightness":"100"}]},{"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffd4a5"}]},{"featureType":"road.arterial","elementType":"geometry.fill","stylers":[{"color":"#ffe9d2"}]},{"featureType":"road.local","elementType":"all","stylers":[{"visibility":"simplified"}]},{"featureType":"road.local","elementType":"geometry.fill","stylers":[{"weight":"3.00"}]},{"featureType":"road.local","elementType":"geometry.stroke","stylers":[{"weight":"0.30"}]},{"featureType":"road.local","elementType":"labels.text","stylers":[{"visibility":"on"}]},{"featureType":"road.local","elementType":"labels.text.fill","stylers":[{"color":"#747474"},{"lightness":"36"}]},{"featureType":"road.local","elementType":"labels.text.stroke","stylers":[{"color":"#e9e5dc"},{"lightness":"30"}]},{"featureType":"transit.line","elementType":"geometry","stylers":[{"visibility":"on"},{"lightness":"100"}]},{"featureType":"water","elementType":"all","stylers":[{"color":"#d2e7f7"}]}]
+      });
+
+      // Steet View Button
+      $('#streetView').click(function(e){
+         e.preventDefault();
+         single_map.getStreetView().setOptions({visible:true,position:myLatlng});
+         // $(this).css('display', 'none')
+      });
+
+
+      // Custom zoom buttons
+      var zoomControlDiv = document.createElement('div');
+      var zoomControl = new ZoomControl(zoomControlDiv, single_map);
+
+      function ZoomControl(controlDiv, single_map) {
+
+        zoomControlDiv.index = 1;
+        single_map.controls[google.maps.ControlPosition.RIGHT_CENTER].push(zoomControlDiv);
+
+        controlDiv.style.padding = '5px';
+
+        var controlWrapper = document.createElement('div');
+        controlDiv.appendChild(controlWrapper);
+
+        var zoomInButton = document.createElement('div');
+        zoomInButton.className = "custom-zoom-in";
+        controlWrapper.appendChild(zoomInButton);
+
+        var zoomOutButton = document.createElement('div');
+        zoomOutButton.className = "custom-zoom-out";
+        controlWrapper.appendChild(zoomOutButton);
+
+        google.maps.event.addDomListener(zoomInButton, 'click', function() {
+          single_map.setZoom(single_map.getZoom() + 1);
+        });
+
+        google.maps.event.addDomListener(zoomOutButton, 'click', function() {
+          single_map.setZoom(single_map.getZoom() - 1);
+        });
+
+      }
+
+
+      // Marker
+      var singleMapIco =  "<i class='"+$('#singleListingMap').data('map-icon')+"'></i>";
+
+      new CustomMarker(
+        myLatlng,
+        single_map,
+        {
+          marker_id: '1'
+        },
+        singleMapIco
+      );
+
+
+    }
+
+    // Single Listing Map Init
+    var single_map =  document.getElementById('singleListingMap');
+    if (typeof(single_map) != 'undefined' && single_map != null) {
+      google.maps.event.addDomListener(window, 'load',  singleListingMap);
+    }
+
+    // -------------- Single Listing Map / End -------------- //
+
+
+
+    // Custom Map Marker
+    // ----------------------------------------------- //
+
+    function CustomMarker(latlng, map, args, markerIco) {
+      this.latlng = latlng;
+      this.args = args;
+      this.markerIco = markerIco;
+      this.setMap(map);
+    }
+
+    CustomMarker.prototype = new google.maps.OverlayView();
+
+    CustomMarker.prototype.draw = function() {
+
+      var self = this;
+
+      var div = this.div;
+
+      if (!div) {
+
+        div = this.div = document.createElement('div');
+        div.className = 'map-marker-container';
+
+        div.innerHTML = '<div class="marker-container">'+
+                            '<div class="marker-card">'+
+                            '</div>'+
+                          '</div>'
+
+
+        // Clicked marker highlight
+        google.maps.event.addDomListener(div, "click", function(event) {
+            $('.map-marker-container').removeClass('clicked infoBox-opened');
+            google.maps.event.trigger(self, "click");
+            $(this).addClass('clicked infoBox-opened');
+        });
+
+
+        if (typeof(self.args.marker_id) !== 'undefined') {
+          div.dataset.marker_id = self.args.marker_id;
+        }
+
+        var panes = this.getPanes();
+        panes.overlayImage.appendChild(div);
+      }
+
+      var point = this.getProjection().fromLatLngToDivPixel(this.latlng);
+
+      if (point) {
+        div.style.left = (point.x) + 'px';
+        div.style.top = (point.y) + 'px';
+      }
+    };
+
+    CustomMarker.prototype.remove = function() {
+      if (this.div) {
+        this.div.parentNode.removeChild(this.div);
+        this.div = null; $(this).removeClass('clicked');
+      }
+    };
+
+    CustomMarker.prototype.getPosition = function() { return this.latlng; };
+
+    // -------------- Custom Map Marker / End -------------- //
+
+
+
+})(this.jQuery);
+</script>
+
+</body>
+</html>
