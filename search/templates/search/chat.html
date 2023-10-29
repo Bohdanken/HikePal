@@ -41,68 +41,25 @@
 				<nav id="navigation">
 					<ul id="responsive">
 
-						<li><a href="#" class="current">Search</a>
+						<li><a href="#">Search Destinations</a>
 							<ul class="dropdown-nav">
+								<li><a href="/">Search With AI</a></li>
+								<li><a href="/">Search With Community (Prod)</a></li>
 							</ul>
 						</li>
 
-						<li><a href="#">Find Work</a>
+						<li><a href="#" class="current">Ask AI</a>
 							<ul class="dropdown-nav">
-								<li><a href="#">Browse Results</a>
-									<ul class="dropdown-nav">
-										<li><a href="/">Full Page List + Map</a></li>
-										<li><a href="/">Full Page Grid + Map</a></li>
-										<li><a href="/">Full Page Grid</a></li>
-										<li><a href="/">List Layout 1</a></li>
-										<li><a href="/">List Layout 2</a></li>
-										<li><a href="/">Grid Layout</a></li>
-									</ul>
-								</li>
-								<li><a href="#">Browse Results</a>
-									<ul class="dropdown-nav">
-										<li><a href="/">List Layout 1</a></li>
-										<li><a href="/">List Layout 2</a></li>
-										<li><a href="/">Grid Layout</a></li>
-										<li><a href="/">Full Page Grid</a></li>
-									</ul>
-								</li>
-								<li><a href="/">Single Page</a></li>
-								<li><a href="/">Single Page</a></li>
-								<li><a href="/">Single Page</a></li>
-								<li><a href="/">Single Page</a></li>
+								<li><a href="/ask">Ask HikePal AI</a></li>
+								<li><a href="/">How To Use? (Prod)</a></li>
 							</ul>
 						</li>
 
-						<li><a href="#">Browse Results</a>
+						<li><a href="#">GitHub</a>
 							<ul class="dropdown-nav">
-								<li><a href="#">Search results</a>
-									<ul class="dropdown-nav">
-										<li><a href="/">Full Page Grid</a></li>
-										<li><a href="/">Grid Layout</a></li>
-										<li><a href="/">List Layout 1</a></li>
-										<li><a href="/">List Layout 2</a></li>
-									</ul>
-								</li>
-								<li><a href="/">Single Page</a></li>
-								<li><a href="/">Single Page</a></li>
-								<li><a href="/">Single Page</a></li>
+								<li><a href="/">Our GitHub</a></li>
 							</ul>
 						</li>
-
-						<li><a href="#">Pages</a>
-							<ul class="dropdown-nav">
-								<li><a href="pages-blog.html">Blog</a></li>
-								<li><a href="pages-pricing-plans.html">Pricing Plans</a></li>
-								<li><a href="pages-checkout-page.html">Checkout Page</a></li>
-								<li><a href="pages-invoice-template.html">Invoice Template</a></li>
-								<li><a href="pages-user-interface-elements.html">User Interface Elements</a></li>
-								<li><a href="pages-icons-cheatsheet.html">Icons Cheatsheet</a></li>
-								<li><a href="pages-login.html">Login & Register</a></li>
-								<li><a href="pages-404.html">404 Page</a></li>
-								<li><a href="pages-contact.html">Contact</a></li>
-							</ul>
-						</li>
-
 					</ul>
 				</nav>
 				<div class="clearfix"></div>
@@ -121,7 +78,7 @@
 					<!-- Messages -->
 					<div class="header-notifications" style="margin-top: 11.5px;">
 						<div class="intro-search-button">
-							<a href="#" class="button" style="height: 42px; line-height: 42px; padding: 0 20px; background-color: #999;">Support Us</a>
+							<a href="#" class="button" style="height: 42px; line-height: 42px; padding: 0 20px;">Support Us</a>
 						</div>
 					</div>
 
@@ -148,22 +105,9 @@
 <div class="clearfix"></div>
 <!-- Header Container / End -->
 
+{% csrf_token %}
 <div class="dashboard-content-container" data-simplebar>
 	<div class="dashboard-content-inner">
-		
-		<!-- Dashboard Headline -->
-		<div class="dashboard-headline">
-			<h3>Messages</h3>
-
-			<!-- Breadcrumbs -->
-			<nav id="breadcrumbs" class="dark">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Dashboard</a></li>
-					<li>Messages</li>
-				</ul>
-			</nav>
-		</div>
 
 			<div class="messages-container margin-top-0">
 
@@ -173,92 +117,41 @@
 					<div class="message-content">
 
 						<div class="messages-headline">
-							<h4>Sindy Forest</h4>
-							<a href="#" class="message-action"><i class="icon-feather-trash-2"></i> Delete Conversation</a>
+							<h4>Your AI Assistant: HikePal AI</h4>
+							<a class="message-action">Beta Version</a>
 						</div>
 						
 						<!-- Message Content Inner -->
 						<div class="message-content-inner">
 								
-								<!-- Time Sign -->
-								<div class="message-time-sign">
-									<span>28 June, 2018</span>
-								</div>
+							<!-- Time Sign -->
+							<div class="message-time-sign">
+								<span>Today</span>
+							</div>
 
-								<div class="message-bubble me">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
-										<div class="message-text"><p>Thanks for choosing my offer. I will start working on your project tomorrow.</p></div>
-									</div>
-									<div class="clearfix"></div>
+							<div class="message-bubble">
+								<div class="message-bubble-inner">
+									<div class="message-avatar"><img src="{% static 'images/chatbot-profile.jpg' %}" alt="" /></div>
+									<div class="message-text"><p>Hey, it's HikePal, how can I help you today?</p></div>
 								</div>
+								<div class="clearfix"></div>
+							</div>
 
-								<div class="message-bubble">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
-										<div class="message-text"><p>Great. If you need any further clarification let me know. 👍</p></div>
-									</div>
-									<div class="clearfix"></div>
+							<div class="message-bubble">
+								<div class="message-bubble-inner">
+									<div class="message-avatar"><img src="{% static 'images/chatbot-profile.jpg' %}" alt="" /></div>
+									<div class="message-text"><p>Feel free to ask me questions about hiking, camping...</p></div>
 								</div>
+								<div class="clearfix"></div>
+							</div>
 
-								<div class="message-bubble me">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
-										<div class="message-text"><p>Ok, I will. 😉</p></div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-
-								<!-- Time Sign -->
-								<div class="message-time-sign">
-									<span>Yesterday</span>
-								</div>
-
-								<div class="message-bubble me">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
-										<div class="message-text"><p>Hi Sindy, I just wanted to let you know that project is finished and I'm waiting for your approval.</p></div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-
-								<div class="message-bubble">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
-										<div class="message-text"><p>Hi Tom! Hate to break it to you, but I'm actually on vacation 🌴 until Sunday so I can't check it now. 😎</p></div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-
-								<div class="message-bubble me">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-01.jpg" alt="" /></div>
-										<div class="message-text"><p>Ok, no problem. But don't forget about last payment. 🙂</p></div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
-
-								<div class="message-bubble">
-									<div class="message-bubble-inner">
-										<div class="message-avatar"><img src="images/user-avatar-small-02.jpg" alt="" /></div>
-										<div class="message-text">
-											<!-- Typing Indicator -->
-											<div class="typing-indicator">
-												<span></span>
-												<span></span>
-												<span></span>
-											</div>
-										</div>
-									</div>
-									<div class="clearfix"></div>
-								</div>
 						</div>
 						<!-- Message Content Inner / End -->
 						
 						<!-- Reply Area -->
 						<div class="message-reply">
-							<textarea cols="1" rows="1" placeholder="Your Message" data-autoresize></textarea>
-							<button class="button ripple-effect">Send</button>
+							<textarea cols="1" rows="1" placeholder="Your Question" id="user-input" data-autoresize></textarea>
+							<button class="button ripple-effect send-btn">Send</button>
 						</div>
 
 					</div>
@@ -267,42 +160,7 @@
 				</div>
 		</div>
 		<!-- Messages Container / End -->
-
-
-
-		
-		<!-- Footer -->
-		<div class="dashboard-footer-spacer"></div>
-		<div class="small-footer margin-top-15">
-			<div class="small-footer-copyrights">
-				© 2023 <strong>HikePal</strong>. All Rights Reserved.
-			</div>
-			<ul class="footer-social-links">
-				<li>
-					<a href="#" title="Facebook" data-tippy-placement="top">
-						<i class="icon-brand-facebook-f"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="Twitter" data-tippy-placement="top">
-						<i class="icon-brand-twitter"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="Google Plus" data-tippy-placement="top">
-						<i class="icon-brand-google-plus-g"></i>
-					</a>
-				</li>
-				<li>
-					<a href="#" title="LinkedIn" data-tippy-placement="top">
-						<i class="icon-brand-linkedin-in"></i>
-					</a>
-				</li>
-			</ul>
-			<div class="clearfix"></div>
-		</div>
-		<!-- Footer / End -->
-
+		<br><br>
 	</div>
 </div>
 
@@ -365,9 +223,6 @@
 								<div class="footer-row-inner">
 									<select class="selectpicker language-switcher" data-selected-text-format="count" data-size="5">
 										<option selected>English</option>
-										<option>Français</option>
-										<option>Español</option>
-										<option>Deutsch</option>
 									</select>
 								</div>
 							</div>
@@ -389,12 +244,12 @@
 				<!-- Links -->
 				<div class="col-xl-2 col-lg-2 col-md-3">
 					<div class="footer-links">
-						<h3>For Candidates</h3>
+						<h3>For Adventurers</h3>
 						<ul>
-							<li><a href="#"><span>Browse Jobs</span></a></li>
-							<li><a href="#"><span>Add Resume</span></a></li>
-							<li><a href="#"><span>Job Alerts</span></a></li>
-							<li><a href="#"><span>My Bookmarks</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -402,12 +257,12 @@
 				<!-- Links -->
 				<div class="col-xl-2 col-lg-2 col-md-3">
 					<div class="footer-links">
-						<h3>For Employers</h3>
+						<h3>About Us</h3>
 						<ul>
-							<li><a href="#"><span>Browse Candidates</span></a></li>
-							<li><a href="#"><span>Post a Job</span></a></li>
-							<li><a href="#"><span>Post a Task</span></a></li>
-							<li><a href="#"><span>Plans & Pricing</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -417,9 +272,9 @@
 					<div class="footer-links">
 						<h3>Helpful Links</h3>
 						<ul>
-							<li><a href="#"><span>Contact</span></a></li>
-							<li><a href="#"><span>Privacy Policy</span></a></li>
-							<li><a href="#"><span>Terms of Use</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -427,10 +282,10 @@
 				<!-- Links -->
 				<div class="col-xl-2 col-lg-2 col-md-3">
 					<div class="footer-links">
-						<h3>Account</h3>
+						<h3>Other</h3>
 						<ul>
-							<li><a href="#"><span>Log In</span></a></li>
-							<li><a href="#"><span>My Account</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
+							<li><a href="#"><span>In Production</span></a></li>
 						</ul>
 					</div>
 				</div>
@@ -438,11 +293,11 @@
 				<!-- Newsletter -->
 				<div class="col-xl-4 col-lg-4 col-md-12">
 					<h3><i class="icon-feather-mail"></i> Sign Up For a Newsletter</h3>
-					<p>Weekly breaking news, analysis and cutting edge advices on job searching.</p>
-					<form action="#" method="get" class="newsletter">
+					<p>Weekly news, insights and hidden hiking treasures.</p>
+					<div class="newsletter">
 						<input type="text" name="fname" placeholder="Enter your email address">
-						<button type="submit"><i class="icon-feather-arrow-right"></i></button>
-					</form>
+						<button><i class="icon-feather-arrow-right"></i></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -482,6 +337,102 @@
 <script src="{% static 'js/magnific-popup.min.js' %}"></script>
 <script src="{% static 'js/slick.min.js' %}"></script>
 <script src="{% static 'js/custom.js' %}"></script>
+
+<!-- ChatBot setup -->
+
+<script>
+	$(document).ready(function() {
+	function sendMessage() {
+		var userMessage = $('#user-input').val().trim();
+		if (userMessage !== '') {
+			appendUserMessage(userMessage);
+			$('#user-input').val('');
+			showLoadingIndicator();
+	
+			$.ajax({
+				url: '/chat/',
+				type: 'POST',
+				data: { message: userMessage, csrfmiddlewaretoken: '{{ csrf_token }}', },
+				success: function(response) {
+					hideLoadingIndicator();
+					appendChatbotMessage(response.message);
+				},
+				error: function(xhr, status, error) {
+					hideLoadingIndicator();
+					appendErrorMessage(errorMessage);
+				}
+			});
+		}
+	}
+	
+	function appendErrorMessage(message) {
+		var messageElement = $('<div class="message-bubble">');
+		messageElement.html(
+			'<div class="message-bubble-inner">' +
+			`<div class="message-avatar"><img src="{% static 'images/chatbot-profile.jpg' %}" alt="" /></div>` +
+			'<div class="message-text"><p>' + 'Sorry, our chatbot is currently at full capacity. Please return in a few minutes.' + '</p></div>' +
+			'</div>' +
+			'<div class="clearfix"></div>'
+		);
+		$('.message-content-inner').append(messageElement);
+	}
+	function appendUserMessage(message) {
+		var messageElement = $('<div class="message-bubble me">');
+		messageElement.html(
+			'<div class="message-bubble-inner">' +
+			`<div class="message-avatar"><img src="{% static 'images/user-profile.jpg' %}" alt="" /></div>` +
+			'<div class="message-text"><p>' + message.replace(/\n/g, "<br>") + '</p></div>' +
+			'</div>' +
+			'<div class="clearfix"></div>'
+		);
+		$('.message-content-inner').append(messageElement);
+	}
+	function appendChatbotMessage(message) {
+		var messageElement = $('<div class="message-bubble">');
+		messageElement.html(
+			'<div class="message-bubble-inner">' +
+			`<div class="message-avatar"><img src="{% static 'images/chatbot-profile.jpg' %}" alt="" /></div>` +
+			'<div class="message-text"><p>' + message.replace(/\n/g, "<br>") + '</p></div>' +
+			'</div>' +
+			'<div class="clearfix"></div>'
+		);
+		$('.message-content-inner').append(messageElement);
+	}
+	function showLoadingIndicator() {
+		var messageElement = $('<div class="loading">');
+		messageElement.html(
+			`<div class="message-bubble">
+				<div class="message-bubble-inner">
+					<div class="message-avatar"><img src="{% static 'images/chatbot-profile.jpg' %}" alt="" /></div>
+					<div class="message-text">
+						<!-- Typing Indicator -->
+						<div class="typing-indicator">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</div>`
+		);
+		$('.message-content-inner').append(messageElement);
+	}
+	function hideLoadingIndicator() {
+		$('.loading').css('display', 'none');
+	}
+	$('#user-input').keypress(function(event) {
+		if (event.which === 13) { // Enter key
+			event.preventDefault();
+			sendMessage();
+		}
+	});
+	$('.send-btn').click(function(event) {
+		event.preventDefault();
+		sendMessage();
+	});
+});
+</script>
 
 <!-- Snackbar // documentation: https://www.polonel.com/snackbar/ -->
 <script>

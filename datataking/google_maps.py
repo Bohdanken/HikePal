@@ -68,7 +68,7 @@ def get_photos(place_id):
             for index, photo in enumerate(photos):
                 photo_reference = photo['photo_reference']
                 photo_url = f"https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference={photo_reference}&key={os.getenv('maps_api_key')}"
-                result.append(f"Photo {index + 1}: {photo_url}")
+                result.append(f"{photo_url}")
             return result
         else:
             print(f"No photos found for place_id: {place_id}")

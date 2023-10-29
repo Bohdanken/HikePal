@@ -113,21 +113,11 @@
 	<div class="full-page-content-container" data-simplebar>
 		<div class="full-page-content-inner">
 
-			<h3 class="page-title">Your Search Results</h3>
+			<h3 class="page-title">Your Search Results {{ resulting_dict }}</h3>
 
 			<div class="notify-box margin-top-15">
 				<div class="switch-container">
 					<span class="switch-text">Best hiking spots delivered to you for your enjoyment.</span>
-				</div>
-
-				<div class="sort-by">
-					<span>Sort by:</span>
-					<select class="selectpicker hide-tick">
-						<option>Relevance</option>
-						<option>Newest</option>
-						<option>Oldest</option>
-						<option>Random</option>
-					</select>
 				</div>
 			</div>
 
@@ -135,14 +125,18 @@
 
 				{% for object_name, object_data in resulting_dict.items %}
 					<!-- Job Listing -->
-					<a href="single-job-page.html" class="job-listing">
+					<a class="job-listing">
 
 						<!-- Job Listing Details -->
 						<div class="job-listing-details">
 
 							<!-- Logo -->
 							<div class="job-listing-company-logo">
-								<img src="images/company-logo-05.png" alt="">
+								{% if object_data.photos %}
+									<img src="{{object_data.photos.0}}" alt="">
+								{% else %}
+									<img src="{% static 'images/no-photo.png' %}" alt="">
+								{% endif %}
 							</div>
 
 							<!-- Details -->
@@ -155,6 +149,7 @@
 										<li><i class="icon-material-outline-location-on"></i> {{ object_data.distance }} from {{ user_location }}</li>
 										<li><i class="icon-material-outline-business-center"></i> Expected Weather: {% if object_data.weather %}Good{% else %}Bad{% endif %}</li>
 										<li><i class="icon-material-outline-access-time"></i> Difficulty: {{ trip_difficulty }}</li>
+										{% if object_data.rating %}<li><i class="icon-material-outline-access-time"></i> Rating: {{ object_data.rating }} stars</li>{% endif %}
 										<li><i class="icon-material-outline-business"></i> {{ object_data.description }}</li>
 									</ul>
 								</div>
@@ -174,8 +169,8 @@
 				<nav class="pagination">
 					<ul>
 						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-left"></i></a></li>
-						<li><a href="#" class="ripple-effect">1</a></li>
-						<li><a href="#" class="ripple-effect current-page">2</a></li>
+						<li><a href="#" class="ripple-effect current-page">1</a></li>
+						<li><a href="#" class="ripple-effect">2</a></li>
 						<li><a href="#" class="ripple-effect">3</a></li>
 						<li><a href="#" class="ripple-effect">4</a></li>
 						<li class="pagination-arrow"><a href="#" class="ripple-effect"><i class="icon-material-outline-keyboard-arrow-right"></i></a></li>
@@ -284,7 +279,58 @@ $('#snackbar-user-status label').click(function() {
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDGyAoxcrGexAsnhwGGDVuWnUU2zunz2Lc&libraries=places"></script>
 <script src="{% static 'js/infobox.min.js' %}"></script>
 <script src="{% static 'js/markerclusterer.js' %}"></script>
-<script src="{% static 'js/maps.js' %}"></script>
+<script>
+	(function($) {
+		"use strict";
+
+		function mainMap() {
+			var locations = {
+				'West Highland Way': {
+					coordinates: { lat: 56.4103, lng: -4.7111 },
+					distance: '71.5km',
+					description: "A long-distance route running 96 miles (154 km) from Milngavie north of Glasgow to Fort William. It's known for its challenging terrain and stunning views of the Scottish Highlands.",
+					weather: false
+				},
+				// Add other locations here
+			};
+
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 6,
+				center: new google.maps.LatLng(56.7549, -4.4294), // Center the map at a specific location
+			});
+
+			for (var locationName in locations) {
+				var location = locations[locationName];
+				var coordinates = location.coordinates;
+				var marker = new google.maps.Marker({
+					position: coordinates,
+					map: map,
+					title: locationName
+				});
+
+				// Create an info window for each marker
+				var infowindow = new google.maps.InfoWindow({
+					content: `
+						<h2>${locationName}</h2>
+						<p>Coordinates: ${coordinates.lat}, ${coordinates.lng}</p>
+						<p>Distance: ${location.distance}</p>
+						<p>${location.description}</p>
+					`
+				});
+
+				marker.addListener('click', function () {
+					infowindow.open(map, marker);
+				});
+			}
+		}
+
+		// Map Init
+		var map = document.getElementById('map');
+		if (typeof (map) != 'undefined' && map != null) {
+			google.maps.event.addDomListener(window, 'load', mainMap);
+		}
+	})(this.jQuery);
+</script>
 
 </body>
 </html>

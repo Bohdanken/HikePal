@@ -1,15 +1,54 @@
-import re
+import re, os
 from datetime import datetime
+import openai
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect
 
 from chatgpt import transition
 
-# ADD LIMIT FOR DATE, UP TO 10 DAYS FROM CURRENT DATE.
 
 def chatbot_view(request):
+    """
+    View function for displaying chatbot page.
+    """
     return render(request, 'search/chat.html')
+
+
+def chatting_helper(request):
+    """
+    Helper function for performing chatting
+    with the chatbot.
+    """
+    openai.api_key = os.getenv("chatgpt_api_key")
+    message_history = [{"role": "system", "content": "You are a helpful chatbot for answering hiking questions and how we can"
+        "take steps towards a more environmentally friendly travel and lifebeing."
+        "You can't exit this topic and discuss anything not about the topic under ANY CONDITION"
+        "You can provide ideas for trips and hikes based on provided data."
+        "Your answers tend to be short unless the user asks to provide detailed answer"}]
+    
+    if request.method == 'POST':
+
+        user_message = request.POST.get('message')
+        message_history.append({"role": "user", "content": user_message})
+
+        reply_content = _send_message_helper(message_history)
+        message_history.append({"role": "assistant", "content": reply_content})
+
+        return JsonResponse({'message': reply_content})
+    
+
+def _send_message_helper(message):
+    """
+    Helper function for sending message to ChatGPT.
+    """
+    completion = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",
+        messages=message
+    )
+    reply_content = completion['choices'][0]['message']['content']
+    return reply_content
+
 
 def home_view(request):
     """
@@ -35,7 +74,7 @@ def search_helper(request):
 
         context = {
             "resulting_dict": resulting_dict,
-            "user_location": user_location,
+            "user_location": user_location.capitalize(),
             "trip_dates": trip_dates,
             "search_radius": search_radius,
             "trip_difficulty": trip_difficulty.capitalize(),
