@@ -27,6 +27,18 @@ def get_place_id(search_term):
         return None
 
 
+
+def get_place_rating(search_term):
+    endpoint_url = f"https://maps.googleapis.com/maps/api/place/textsearch/json"
+    params = {
+        'query': search_term,
+        'key': os.getenv("maps_api_key")
+    }
+    response = requests.get(endpoint_url, params=params)
+    response_json = response.json()
+    return response_json['results'][0]['rating']
+
+
 def get_photos(place_id):
     if not place_id:
         print("Invalid place_id")
