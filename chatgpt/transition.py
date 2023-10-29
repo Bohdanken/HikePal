@@ -35,4 +35,4 @@ def get_final_data(start_date,end_date, difficulty,city,radius):
 
 start_date = "2023-10-30"
 end_date = "2023-11-01"
-print(get_final_data(start_date,end_date,"Moderate","Edinburgh",150))
+#print(get_final_data(start_date,end_date,"Moderate","Edinburgh",150))
