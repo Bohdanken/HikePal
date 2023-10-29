@@ -10,7 +10,7 @@ load_dotenv()
 
 def ask_for_trails(parameters):
     request_str = f"Tell me 10 most popular trails (but not parks) of {parameters['difficulty']} level " \
-                  f"within {parameters['radius']} kilometers of {parameters['city']}. " \
+                  f"within {parameters['radius']} kilometers of {parameters['city']}.(Outside of the city) " \
                   f"Please tell names, coordinates, distance from the city, and brief description, " \
                   f"Please give your answer in the following format: NAME % (LATITUDE, LONGITUDE) % DISTANCE % DESCRIPTION. "
 
